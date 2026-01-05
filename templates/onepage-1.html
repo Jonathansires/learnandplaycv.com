@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Learn & Play Preschool and Daycare in Cedar Falls and Evansdale, Iowa, offers a safe, nurturing environment where children can learn, grow, and play. With over 25 years of experience, we provide quality early childhood education and care, fostering development through fun and engaging activities.">
+		<meta name="keywords" content="Daycare, Preschool, Childcare, Early Childhood Education, Learning Center, Safe Environment, Nurturing Care, Play-based Learning, Learn & Play, Experienced Childcare, 25 Years of Experience, Learn and Play, Cedar Falls, Evansdale, Waterloo, Iowa, Daycare near me, daycare, childcare, job listing, hiring">
+		<title>Learn & Play Preschool and Daycare | Quality Childcare in Cedar Falls & Evansdale, Iowa</title>
+		<!-- Favicon -->
+		<link href="/static/favicon.ico" rel="shortcut icon" type="image/png">
+		<!-- CSS -->
+		<link href="{{ url_for('static', path='assets/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/owl-carousel/owl.carousel.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/owl-carousel/owl.theme.default.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/scrollcue/scrollcue.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/css/theme.css') }}" rel="stylesheet">
+		<!-- Fonts/Icons -->
+		<link href="{{ url_for('static', path='assets/plugins/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/font-awesome/css/all.css') }}" rel="stylesheet">
+		
+		<!-- Google reCAPTCHA v3 -->
+		{% if recaptcha_site_key %}
+		<script>
+			window.RECAPTCHA_SITE_KEY = "{{ recaptcha_site_key }}";
+		</script>
+		<script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}"></script>
+		{% endif %}
+
+
+	</head>
+	<body data-preloader="1">
+		
+		<!-- Header -->
+		<div class="header center header-color-dark transparent-light sticky">
+			<div class="container">
+				<!-- Logo -->
+				<div class="header-logo">
+					<h3><a href="/">Learn & Play</a></h3>
+				</div>
+				<!-- Menu -->
+				<div class="header-menu">
+					<ul class="nav">
+						<li class="nav-item">
+							<a class="nav-link" href="#home">Home</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="/careers">Careers</a>
+						</li>
+						<li class="nav-item">
+							<!-- <a class="nav-link" href="">Team</a> -->
+						</li>
+					</ul>
+				</div>
+				<!-- Menu Extra -->
+				<div class="header-menu-extra">
+					<ul class="list-inline">
+						<li><a href="https://www.facebook.com/p/Learn-Play-Preschool-Daycare-100064329924185/?_rdr"><i class="bi bi-facebook"></i></a></li>
+						<li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
+						<li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+					</ul>
+				</div>
+				<!-- Menu Toggle -->
+				<button class="header-toggle">
+					<span></span>
+				</button>
+			</div><!-- end container -->
+		</div>
+		<!-- end Header -->
+
+		<!-- Hero section -->
+		<div class="owl-carousel owl-nav-overlay owl-dots-overlay" data-owl-nav="true" data-owl-dots="true" data-owl-items="1" data-owl-autoPlay="true">
+			<!-- Slider Item 1 -->
+			<div class="section-fullscreen bg-image" data-bg-src="/static/learnandplayhero.jpeg">
+				<div class="bg-dark-06">
+					<div class="container">
+						<div class="position-middle">
+							<div class="row">
+								<div class="col-12 col-sm-10 col-md-9">
+									<h1 class="display-4 fw-bold line-height-130">Cedar Falls</h1>
+									<a class="button button-xl button-radius button-gradient-3 mt-4 nav-link" href="#contact">Contact</a>
+								</div>
+							</div><!-- end row -->
+						</div>
+					</div><!-- end container -->
+				</div>
+			</div>
+			<!-- Slider Item 2 -->
+			<div class="section-fullscreen bg-image" data-bg-src="/static/evansdale.jpg">
+				<div class="bg-dark-06">
+					<div class="container">
+						<div class="position-middle">
+							<div class="row">
+								<div class="col-12 col-sm-10 col-md-9">
+									<h1 class="display-4 fw-bold line-height-130">Evansdale</h1>
+									<a class="button button-xl button-radius button-gradient-3 mt-4 nav-link" href="#contact">Contact</a>
+								</div>
+							</div><!-- end row -->
+						</div>
+					</div><!-- end container -->
+				</div>
+			</div>
+		</div>
+		<!-- end Hero section -->
+	
+
+		<!-- About section -->
+		<div>
+		<div id="about" class="section">
+			<div class="container">
+				<div class="mb-5 text-center">
+					<h2 class="fw-normal">OUR MISSION</h2>
+				</div>
+				<div class="row g-4 g-lg-5">
+					<div class="col-12 col-md-4">
+						<p>Learn & Play Preschool & Daycare proudly serves all of the Cedar Valley from our Cedar Falls location. Offering a safe, clean, educational, and fun environment for all children, we believe we are the best daycare and preschool 
+							in the Cedar Valley. We want you to come take a look!</p>
+					</div>
+					<div class="col-12 col-md-4">
+						<p>We believe that all young people should be prepared to think deeply and creatively so that they have the chance to become the innovators, educators.</p>
+					</div>
+					<div class="col-12 col-md-4">
+						<p>Our teachers are warm and nurturing, hold degrees in early education and childhood development coupled with years of experience, and are dedicated to helping your child reach his or her full potential.</p>
+						
+					</div>
+				</div><!-- end row -->
+			</div><!-- end container -->
+		</div>
+	</div>
+		<!-- end About section -->
+
+
+<!-- Contact section -->
+<div class="">
+    <div id="contact" class="section">
+        <div class="container">
+            <div class="mb-5">
+                <div class="row text-center">
+                    <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                        <h2 class="fw-normal">Get In Touch</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="mb-4">
+                        <h6 class="fw-normal m-0">Phone:</h6>
+                        <p>(319) 266-7944</p>
+                    </div>
+                    <div class="mb-4">
+                        <h6 class="fw-normal m-0"></h6>
+                        <p></p>
+                    </div>
+                    <div>
+                        <h6 class="fw-normal m-0">Address:</h6>
+                        <p>4710 Cedar Heights Drive, Cedar Falls</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 text-md-end">
+                    <form id="contactForm">
+                        <div class="row gx-3 gy-0">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" id="name" name="name" placeholder="Name" required>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" id="email" name="email" placeholder="E-Mail" required>
+                            </div>
+                        </div>
+						<div class="row gx-3 gy-0">
+							<div class="col-12 col-sm-6">
+                        <input type="text" id="age" name="age" placeholder="Childs Date Of Birth" required>
+						</div>
+						</div>
+                        <textarea name="message" id="message" placeholder="Message" required></textarea>						
+						
+                        <input type="text" id="phone" name="phone" style="display:none">
+                        <button class="button button-lg" type="submit">Send Message</button>
+                    </form>
+                    <!-- Submit result -->
+                    <div id="flash-message"></div>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div>
+</div>
+<!-- end Contact section -->
+
+		<!-- Google Maps -->
+	<div id="map" class=>
+		<div class="section pt-0">
+			<div class="container">
+				<div class="mb-5">
+					<div class="row text-center">
+							<h2 class="fw-normal">Cedar Falls</h2>
+						
+					</div>
+				</div>
+				<div>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2941.8207930066997!2d-92.41158506754608!3d42.495362378938566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e554f0123cab7d%3A0xf9bb2068b00f2e2f!2sLearn%20%26%20Play%20Preschool!5e0!3m2!1sen!2sus!4v1723997096699!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>			</div>
+		</div>
+	</div>
+		<!-- end Google Maps -->
+
+		<footer>
+			<div class="section-sm">
+				<div class="container">
+					<div class="row g-4">
+						<div class="col-6 col-sm-6 col-lg-3">
+							<h3 class="uppercase letter-spacing-1">LP</h3>
+						</div>
+
+						<div class="col-6 col-sm-6 col-lg-3">
+							<h6 class="font-small fw-medium uppercase">Links</h6>
+							<ul class="list-dash animate-links">
+								<li><a href="/">Home</a></li>
+								<li><a href="http://jcsires.com">Website made by JCSires</a></li>
+
+								
+							</ul>
+						</div>
+
+						<div class="col-6 col-sm-6 col-lg-3">
+							<h6 class="font-small fw-medium uppercase">Address</h6>
+							<ul class="list-unstyled">
+								<li>4710 Cedar Heights Drive, Cedar Falls</li>
+								
+							</ul>
+						</div>
+						
+						<div class="col-6 col-sm-6 col-lg-3">
+							<h6 class="font-small fw-medium uppercase">Contact Info</h6>
+							<ul class="list-unstyled">
+								
+								<li>info@learnandplaycv.com</li>
+								<li>(319) 266-7944</li>
+							</ul>
+						</div>
+					</div><!-- end row -->
+				</div><!-- end container -->
+			</div>
+			<div class="bg-black py-4">	
+				<div class="container">
+					<div class="row align-items-center g-2 g-lg-3">
+						<div class="col-12 col-md-6 text-center text-md-start">
+							<p>&copy; 2024 Learn & Play, All Rights Reserved.</p>
+						</div>
+						<div class="col-12 col-md-6 text-center text-md-end">
+							<ul class="list-inline-sm">
+								<li><a class="button-circle button-circle-sm button-circle-social-facebook" href="https://www.facebook.com/p/Learn-Play-Preschool-Daycare-100064329924185/?_rdr"><i class="bi bi-facebook"></i></a></li>
+								<li><a class="button-circle button-circle-sm button-circle-social-twitter" href=""><i class="bi bi-twitter-x"></i></a></li>
+								<li><a class="button-circle button-circle-sm button-circle-social-pinterest" href=""><i class="bi bi-pinterest"></i></a></li>
+								<li><a class="button-circle button-circle-sm button-circle-social-instagram" href=""><i class="bi bi-instagram"></i></a></li>
+							</ul>
+						</div>
+					</div><!-- end row -->
+				</div><!-- end container -->
+			</div>
+		</footer>
+
+		<!-- Scroll to top button -->
+		<div class="scrolltotop">
+			<a class="button-circle button-circle-md button-circle-dark" href="#"><i class="bi bi-arrow-up"></i></a>
+		</div>
+		<!-- end Scroll to top button -->
+		 <script src="{{ url_for('static', path='assets/plugins/jquery.min.js') }}"></script>
+			<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+		<script src="{{ url_for('static', path='assets/plugins/plugins.js') }}"></script>
+		<script src="{{ url_for('static', path='assets/js/functions.js') }}"></script>
+		<script>
+			$(document).ready(function() {
+				console.log('Contact form script loaded');
+				
+				// Check if reCAPTCHA is available
+				if (typeof grecaptcha === 'undefined') {
+					console.error('❌ reCAPTCHA not loaded! Check if script is blocked.');
+				} else {
+					console.log('✅ reCAPTCHA loaded successfully');
+				}
+
+				if (!window.RECAPTCHA_SITE_KEY) {
+					console.error('❌ RECAPTCHA_SITE_KEY is not defined.');
+					return;
+				}
+				
+				$('#contactForm').on('submit', function(event) {
+					event.preventDefault();
+					console.log('Form submitted, getting reCAPTCHA token...');
+					
+					// Disable the submit button to prevent multiple submissions
+					const submitButton = $(this).find('button[type="submit"]');
+					submitButton.prop('disabled', true).text('Sending...');
+
+					const formElement = this;
+
+					// Get reCAPTCHA token before submitting
+					grecaptcha.ready(function() {
+						console.log('reCAPTCHA ready, executing...');
+						grecaptcha.execute(window.RECAPTCHA_SITE_KEY, {action: 'contact'}).then(function(token) {
+							console.log('✅ reCAPTCHA token received:', token.substring(0, 20) + '...');
+							// Add token to form data
+							const formData = $(formElement).serialize() + '&recaptcha_token=' + token;
+
+							$.ajax({
+								type: 'POST',
+								url: '/',  // Adjust the URL as needed
+								data: formData,
+								success: function(response) {
+									console.log('✅ Form submitted successfully:', response);
+									$('#flash-message').html('<p>' + response.message + '</p>').css('color', response.status === 'success' ? 'green' : 'red');
+									// Clear the form
+									$('#contactForm')[0].reset();
+								},
+								error: function(xhr, status, error) {
+									console.error('❌ Form submission error:', status, error);
+									$('#flash-message').html('<p>An error occurred while submitting the form.</p>').css('color', 'red');
+								},
+								complete: function() {
+									// Re-enable the submit button after the request is complete
+									submitButton.prop('disabled', false).text('Send Message');
+								}
+							});
+						}).catch(function(error) {
+							console.error('❌ reCAPTCHA execute failed:', error);
+							submitButton.prop('disabled', false).text('Send Message');
+						});
+					});
+				});
+			});
+		</script>
+		
+		<style>
+			.success {
+				color: green;
+			}
+		
+			.error {
+				color: red;
+			}
+		</style>
+			</body>
+</html>

@@ -1,0 +1,109 @@
+//
+// Animated Progress bar Styles //
+//
+.progress-box {
+	* {
+		margin: 0;
+	}
+	.animated-progress {
+		position: relative;
+		background: $color-dark-01;
+		height: 5px;
+		margin-top: 2px;
+		border-radius: 3px;
+		div {
+			position: absolute;
+			display: block;
+			background: $color-dark;
+			width: 50%;
+			height: 100%;
+			border-radius: 3px;
+			color: $color-dark;
+			@include transition(width 0.7s cubic-bezier(0.165, 0.84, 0.44, 1));
+			@include transition-delay(0.1s);
+			&::after {
+				content: attr(data-progress) '%';
+				position: absolute;
+				top: -24px;
+				right: 0;
+			}
+		}
+	}
+	&.progress-blue {
+		.animated-progress {
+			div {
+				background: $bg-color-blue;
+			}
+		}
+	}
+	&.progress-purple {
+		.animated-progress {
+			div {
+				background: $bg-color-purple;
+			}
+		}
+	}
+	&.progress-pink-edge {
+		.animated-progress {
+			div {
+				background: $bg-color-pink-edge;
+			}
+		}
+	}
+	&.progress-golden-yellow {
+		.animated-progress {
+			div {
+				background: $bg-color-golden-yellow;
+			}
+		}
+	}
+	&.progress-very-peri {
+		.animated-progress {
+			div {
+				background: $bg-color-very-peri;
+			}
+		}
+	}
+	&.progress-turquiose {
+		.animated-progress {
+			div {
+				background: $bg-color-turquiose;
+			}
+		}
+	}
+	&.progress-spring-red {
+		.animated-progress {
+			div {
+				background: $bg-color-spring-red;
+			}
+		}
+	}
+	&.progress-tan {
+		.animated-progress {
+			div {
+				background: $bg-color-tan;
+			}
+		}
+	}
+	&.progress-aqua {
+		.animated-progress {
+			div {
+				background: $bg-color-aqua;
+			}
+		}
+	}
+}
+.bg-black, 
+[class*='bg-dark'], 
+[class*='bg-gradient-'], 
+[class*='bg-color-'] {
+	.progress-box {
+		.animated-progress {
+			background: $color-white-03;
+			div {
+				background: white;
+				color: white;
+			}
+		}
+	}
+}

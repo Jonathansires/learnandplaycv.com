@@ -1,0 +1,34 @@
+//
+// Page Scroll Progress //
+//
+.page-progress-container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	width: 100%;
+	height: 8px;
+}
+.page-progress-bar {
+	height: 8px;
+	width: 0%;
+	background-image: $gradient-1;
+	&.page-progress-gradient-2 {
+		background-image: $gradient-2;
+	}
+	&.page-progress-gradient-3 {
+		background-image: $gradient-3;
+	}
+	&.page-progress-gradient-4 {
+		background-image: $gradient-4;
+	}
+	&.page-progress-gradient-5 {
+		background-image: $gradient-5;
+	}
+	&.page-progress-gradient-6 {
+		background-image: $gradient-6;
+	}
+	&.page-progress-gradient-7 {
+		background-image: $gradient-7;
+	}
+}

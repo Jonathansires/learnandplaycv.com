@@ -1,0 +1,431 @@
+/*------------------------------------------------
+*
+* Theme Color - Golden Yellow
+*
+-------------------------------------------------*/
+.theme-color-golden-yellow a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover {
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover,
+.theme-color-golden-yellow [class*='bg-color'] a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover {
+  color: white;
+}
+
+.theme-color-golden-yellow .header.header-color-theme {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .header .header-menu:not([class*='dropdown-color']) .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):hover, .theme-color-golden-yellow .header .header-menu:not([class*='dropdown-color']) .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):focus {
+  color: #FFB657;
+}
+
+@media (min-width: 992px) {
+  .theme-color-golden-yellow .header .header-menu.dropdown-color-theme .nav .nav-item .nav-dropdown {
+    background: #FFB657;
+  }
+  .theme-color-golden-yellow .header .header-menu.dropdown-color-theme .nav .nav-item .nav-dropdown .nav-dropdown-item .nav-subdropdown {
+    background: #FFB657;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .theme-color-golden-yellow .header.mobile-menu-color-theme .header-menu {
+    background: #FFB657;
+  }
+  .theme-color-golden-yellow .header[class*='mobile-menu-color'] .header-menu .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):hover, .theme-color-golden-yellow .header[class*='mobile-menu-color'] .header-menu .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):focus {
+    color: white;
+  }
+}
+
+.theme-color-golden-yellow .bg-color-theme {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-color-theme-09 {
+  background: rgba(255, 182, 87, 0.9);
+}
+
+.theme-color-golden-yellow .bg-color-theme-08 {
+  background: rgba(255, 182, 87, 0.8);
+}
+
+.theme-color-golden-yellow .bg-color-theme-07 {
+  background: rgba(255, 182, 87, 0.7);
+}
+
+.theme-color-golden-yellow .bg-color-theme-06 {
+  background: rgba(255, 182, 87, 0.6);
+}
+
+.theme-color-golden-yellow .bg-color-theme-05 {
+  background: rgba(255, 182, 87, 0.5);
+}
+
+.theme-color-golden-yellow .bg-color-theme-04 {
+  background: rgba(255, 182, 87, 0.4);
+}
+
+.theme-color-golden-yellow .bg-color-theme-03 {
+  background: rgba(255, 182, 87, 0.3);
+}
+
+.theme-color-golden-yellow .bg-color-theme-02 {
+  background: rgba(255, 182, 87, 0.2);
+}
+
+.theme-color-golden-yellow .bg-color-theme-01 {
+  background: rgba(255, 182, 87, 0.1);
+}
+
+.theme-color-golden-yellow .bg-light-theme {
+  background: #FFEFDB;
+}
+
+.theme-color-golden-yellow .button-theme {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .button-outline-theme {
+  border-color: #FFB657;
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow .button-outline-theme:hover, .theme-color-golden-yellow .button-outline-theme:focus {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .button-circle-theme {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .button-circle-outline-theme {
+  border-color: #FFB657;
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow .button-circle-outline-theme:hover, .theme-color-golden-yellow .button-circle-outline-theme:focus {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .button-backdrop-color-theme {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .button-text-theme.button-text-1, .theme-color-golden-yellow .button-text-theme.button-text-2, .theme-color-golden-yellow .button-text-theme.button-text-3 {
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow .button-text-theme.button-text-1:hover, .theme-color-golden-yellow .button-text-theme.button-text-2:hover, .theme-color-golden-yellow .button-text-theme.button-text-3:hover {
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow .button-text-theme.button-text-1:before {
+  background: rgba(255, 182, 87, 0.3);
+}
+
+.theme-color-golden-yellow .button-text-theme.button-text-1:after {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .button-text-theme.button-text-2:before {
+  background: rgba(255, 182, 87, 0.1);
+}
+
+.theme-color-golden-yellow .button-text-theme.button-text-2:after {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .button-text-theme.button-text-3:before {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .button-text-theme.button-text-3:hover:before {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .button-text-theme.button-text-1, .theme-color-golden-yellow .bg-black .button-text-theme.button-text-2, .theme-color-golden-yellow .bg-black .button-text-theme.button-text-3,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-1,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-2,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-3 {
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .button-text-theme.button-text-1:hover, .theme-color-golden-yellow .bg-black .button-text-theme.button-text-2:hover, .theme-color-golden-yellow .bg-black .button-text-theme.button-text-3:hover,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-1:hover,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-2:hover,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-3:hover {
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .button-text-theme.button-text-1:before,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-1:before {
+  background: rgba(255, 182, 87, 0.3);
+}
+
+.theme-color-golden-yellow .bg-black .button-text-theme.button-text-1:after,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-1:after {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .button-text-theme.button-text-2:before,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-2:before {
+  background: rgba(255, 182, 87, 0.3);
+}
+
+.theme-color-golden-yellow .bg-black .button-text-theme.button-text-2:after,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-2:after {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .button-text-theme.button-text-3:before,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-3:before {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .button-text-theme.button-text-3:hover:before,
+.theme-color-golden-yellow [class*='bg-dark'] .button-text-theme.button-text-3:hover:before {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .text-color-theme {
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow .progress-box.progress-theme .animated-progress div {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .progress-box.progress-theme .animated-progress div,
+.theme-color-golden-yellow [class*='bg-color'] .progress-box.progress-theme .animated-progress div {
+  background: white;
+}
+
+.theme-color-golden-yellow.preloader-theme .preloader-1 div .loader-path {
+  stroke: #FFB657;
+}
+
+.theme-color-golden-yellow.preloader-theme .preloader-2 div span {
+  background: #FFB657;
+  background: linear-gradient(to right, #FFB657 10%, transparent 40%);
+}
+
+.theme-color-golden-yellow.preloader-theme .preloader-2 div span:before {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow.preloader-theme .preloader-3 div span:before, .theme-color-golden-yellow.preloader-theme .preloader-3 div span:after {
+  background: rgba(255, 182, 87, 0.2);
+}
+
+.theme-color-golden-yellow .accordion li .accordion-title {
+  border-color: rgba(255, 182, 87, 0.1);
+}
+
+.theme-color-golden-yellow .accordion li .accordion-title:before, .theme-color-golden-yellow .accordion li .accordion-title:after {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .accordion li .accordion-title h1, .theme-color-golden-yellow .accordion li .accordion-title h2, .theme-color-golden-yellow .accordion li .accordion-title h3, .theme-color-golden-yellow .accordion li .accordion-title h4, .theme-color-golden-yellow .accordion li .accordion-title h5, .theme-color-golden-yellow .accordion li .accordion-title h6 {
+  color: #FFB657;
+}
+
+.theme-color-golden-yellow .accordion li.active .accordion-title {
+  border-color: #FFB657;
+}
+
+.theme-color-golden-yellow .accordion.style-3 li .accordion-title {
+  background: #FFEFDB;
+}
+
+.theme-color-golden-yellow .accordion.style-3 li.active .accordion-title {
+  background: #FFB657;
+  color: white;
+}
+
+.theme-color-golden-yellow .accordion.style-3 li.active .accordion-title:before, .theme-color-golden-yellow .accordion.style-3 li.active .accordion-title:after {
+  background: white;
+}
+
+.theme-color-golden-yellow .accordion.style-3 li.active .accordion-title h1, .theme-color-golden-yellow .accordion.style-3 li.active .accordion-title h2, .theme-color-golden-yellow .accordion.style-3 li.active .accordion-title h3, .theme-color-golden-yellow .accordion.style-3 li.active .accordion-title h4, .theme-color-golden-yellow .accordion.style-3 li.active .accordion-title h5, .theme-color-golden-yellow .accordion.style-3 li.active .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-golden-yellow .bg-black .accordion li .accordion-title,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion li .accordion-title {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-color-golden-yellow .bg-black .accordion li .accordion-title:before, .theme-color-golden-yellow .bg-black .accordion li .accordion-title:after,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion li .accordion-title:before,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion li .accordion-title:after {
+  background: white;
+}
+
+.theme-color-golden-yellow .bg-black .accordion li.active .accordion-title,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion li.active .accordion-title {
+  border-color: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .accordion.style-3 li .accordion-title,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li .accordion-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title {
+  background: #FFB657;
+  color: white;
+}
+
+.theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title:before, .theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title:after,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title:before,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title:after {
+  background: white;
+}
+
+.theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title h1, .theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title h2, .theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title h3, .theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title h4, .theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title h5, .theme-color-golden-yellow .bg-black .accordion.style-3 li.active .accordion-title h6,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h1,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h2,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h3,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h4,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h5,
+.theme-color-golden-yellow [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title h1, .theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title h2, .theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title h3, .theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title h4, .theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title h5, .theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title h6,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title h1,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title h2,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title h3,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title h4,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title h5,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title:before, .theme-color-golden-yellow [class*='bg-gradient'] .accordion li .accordion-title:after,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title:before,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li .accordion-title:after {
+  background: white;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion li.active .accordion-title,
+.theme-color-golden-yellow [class*='bg-color'] .accordion li.active .accordion-title {
+  border-color: white;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li .accordion-title,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li .accordion-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li .accordion-title h1, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li .accordion-title h2, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li .accordion-title h3, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li .accordion-title h4, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li .accordion-title h5, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li .accordion-title h6,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li .accordion-title h1,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li .accordion-title h2,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li .accordion-title h3,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li .accordion-title h4,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li .accordion-title h5,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title {
+  background: white;
+  color: #7C7C7C;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title:before, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title:after,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title:before,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title:after {
+  background: black;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h1, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h2, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h3, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h4, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h5, .theme-color-golden-yellow [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h6,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title h1,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title h2,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title h3,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title h4,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title h5,
+.theme-color-golden-yellow [class*='bg-color'] .accordion.style-3 li.active .accordion-title h6 {
+  color: black;
+}
+
+.theme-color-golden-yellow .text-link-2:before,
+.theme-color-golden-yellow .text-link-3:before,
+.theme-color-golden-yellow .text-link-4:before {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .text-link-5:after,
+.theme-color-golden-yellow .text-link-6:after,
+.theme-color-golden-yellow .text-link-7:after {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .text-link-8:before {
+  background: rgba(255, 182, 87, 0.1);
+}
+
+.theme-color-golden-yellow .bg-black .text-link-2:before,
+.theme-color-golden-yellow .bg-black .text-link-3:before,
+.theme-color-golden-yellow .bg-black .text-link-4:before,
+.theme-color-golden-yellow [class*='bg-dark'] .text-link-2:before,
+.theme-color-golden-yellow [class*='bg-dark'] .text-link-3:before,
+.theme-color-golden-yellow [class*='bg-dark'] .text-link-4:before {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .text-link-5:after,
+.theme-color-golden-yellow .bg-black .text-link-6:after,
+.theme-color-golden-yellow .bg-black .text-link-7:after,
+.theme-color-golden-yellow [class*='bg-dark'] .text-link-5:after,
+.theme-color-golden-yellow [class*='bg-dark'] .text-link-6:after,
+.theme-color-golden-yellow [class*='bg-dark'] .text-link-7:after {
+  background: #FFB657;
+}
+
+.theme-color-golden-yellow .bg-black .text-link-8:before,
+.theme-color-golden-yellow [class*='bg-dark'] .text-link-8:before {
+  background: rgba(255, 182, 87, 0.1);
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .text-link-2:before, .theme-color-golden-yellow [class*='bg-gradient'] .text-link-3:before, .theme-color-golden-yellow [class*='bg-gradient'] .text-link-4:before,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-2:before,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-3:before,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-4:before {
+  background: white;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .text-link-5:before, .theme-color-golden-yellow [class*='bg-gradient'] .text-link-6:before, .theme-color-golden-yellow [class*='bg-gradient'] .text-link-7:before,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-5:before,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-6:before,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-7:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .text-link-5:after, .theme-color-golden-yellow [class*='bg-gradient'] .text-link-6:after, .theme-color-golden-yellow [class*='bg-gradient'] .text-link-7:after,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-5:after,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-6:after,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-7:after {
+  background: white;
+}
+
+.theme-color-golden-yellow [class*='bg-gradient'] .text-link-8:before,
+.theme-color-golden-yellow [class*='bg-color'] .text-link-8:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-color-golden-yellow .form-style-2 input:focus, .theme-color-golden-yellow .form-style-2 textarea:focus, .theme-color-golden-yellow .form-style-2 .custom-select:focus, .theme-color-golden-yellow .form-style-2 .form-control:focus,
+.theme-color-golden-yellow .form-style-4 input:focus,
+.theme-color-golden-yellow .form-style-4 textarea:focus,
+.theme-color-golden-yellow .form-style-4 .custom-select:focus,
+.theme-color-golden-yellow .form-style-4 .form-control:focus {
+  border-color: #FFB657;
+}

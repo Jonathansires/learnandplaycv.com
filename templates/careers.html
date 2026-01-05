@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Join our team as a Daycare Worker at Learn & Play!">
+	<meta name="keywords" content="Daycare, Preschool, Childcare, Early Childhood Education, Learning Center, Safe Environment, Nurturing Care, Play-based Learning, Learn & Play, Experienced Childcare, 25 Years of Experience, Learn and Play, Cedar Falls, Waterloo, Iowa, Daycare near me, daycare, childcare, job listing, hiring">
+	<title>Learn and Play - Daycare Worker Position</title>
+	<!-- Favicon -->
+    <link href="/static/favicon.ico" rel="shortcut icon">
+	<!-- CSS -->
+	<link href="{{ url_for('static', path='assets/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='assets/plugins/owl-carousel/owl.carousel.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='assets/plugins/owl-carousel/owl.theme.default.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='assets/plugins/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='assets/plugins/scrollcue/scrollcue.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='assets/plugins/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='assets/css/theme.css') }}" rel="stylesheet">
+	<!-- Fonts/Icons -->
+	<link href="{{ url_for('static', path='assets/plugins/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='assets/plugins/font-awesome/css/all.css') }}" rel="stylesheet">
+	
+	<!-- Google reCAPTCHA v3 -->
+	{% if recaptcha_site_key %}
+	<script>
+		window.RECAPTCHA_SITE_KEY = "{{ recaptcha_site_key }}";
+	</script>
+	<script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}"></script>
+	{% endif %}
+</head>
+<body data-preloader="1">
+	
+	<!-- Header -->
+	<div class="header center header-color-dark transparent-light sticky">
+		<div class="container">
+			<!-- Logo -->
+			<div class="header-logo">
+				<h3><a href="/">Learn & Play</a></h3>
+			</div>
+			<!-- Menu -->
+			<div class="header-menu">
+				<ul class="nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/careers">Careers</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/team">Team</a>
+					</li>
+				</ul>
+			</div>
+			<!-- Menu Extra -->
+			<div class="header-menu-extra">
+				<ul class="list-inline">
+					<li><a href="https://www.facebook.com/p/Learn-Play-Preschool-Daycare-100064329924185/?_rdr"><i class="bi bi-facebook"></i></a></li>
+					<li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
+					<li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+				</ul>
+			</div>
+			<!-- Menu Toggle -->
+			<button class="header-toggle">
+				<span></span>
+			</button>
+		</div><!-- end container -->
+	</div>
+	<!-- end Header -->
+
+	<!-- Hero section -->
+	<div class="section-lg bg-dark">
+		<div class="container text-center">
+			<h1>Early Childhood Educator</h1>
+			<ul class="list-inline">
+				<li><a href="#"><i class="fas fa-user-tie me-2"></i><span>Learn & Play</span></a></li>
+				<li><a href="#"><i class="fas fa-map-marker-alt me-2"></i><span>Cedar Falls, Iowa</span></a></li>
+			</ul>
+		</div><!-- end container -->
+	</div>
+	<!-- end Hero section -->
+
+	<!-- Job Listing Details -->
+	<div class="section">
+		<div class="container">
+			<div class="row g-5">
+				<div class="col-12 col-lg-8">
+					<div>
+						<h5 class="fw-medium">Job Description</h5>
+						<p>We are looking for a dedicated and nurturing Daycare Worker to join our team at Learn & Play. You will be responsible for providing a safe and stimulating environment for young children, promoting their social, emotional, physical, and cognitive development. You will work closely with other staff members to create a supportive and enriching atmosphere for children to learn and play.</p>
+					</div>
+					<div class="mt-4 mt-lg-5">
+						<h5 class="fw-medium">Responsibilities</h5>
+						<ul class="list-dash">
+							<li>Supervise and ensure the safety of children at all times.</li>
+							<li>Plan and implement educational activities that promote children's development.</li>
+							<li>Assist with daily routines, including meal times, nap times, and bathroom breaks.</li>
+							<li>Communicate effectively with parents about their child's progress and needs.</li>
+							<li>Maintain a clean and organized environment.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-12 col-lg-4">
+					<h5 class="fw-medium">Requirements</h5>
+					<ul class="list-dash">
+						<li>Previous experience working with children in a daycare or educational setting.</li>
+						<li>CPR and First Aid certification.</li>
+						<li>Strong communication and interpersonal skills.</li>
+						<li>Patience, creativity, and a love for working with children.</li>
+						<li>High school diploma or equivalent; further education in child development is a plus.</li>
+					</ul>
+				</div>
+			</div><!-- end row -->
+			<div class="mt-5">
+				<form id="jobApplicationForm">
+					<div class="row g-4">
+						<div class="col-12 col-sm-6 col-lg-4">
+							<label class="required">First name</label>
+							<input type="text" name="first_name" id="first_name" placeholder="First name" required>
+						</div>
+
+						<div class="col-12 col-sm-6 col-lg-4">
+							<label class="required">Last name</label>
+							<input type="text" name="last_name" id="last_name" placeholder="Last name" required>
+						</div>
+
+						<div class="col-12 col-sm-6 col-lg-4">
+							<label class="required">Phone</label>
+							<input type="tel" name="phone" id="phone" placeholder="Phone number" required>
+						</div>
+
+						<div class="col-12 col-sm-6 col-lg-4">
+							<label class="required">Email address</label>
+							<input type="email" name="email2" id="email2" placeholder="Email address" required>
+						</div>
+
+						<div class="col-12 col-sm-6 col-lg-4">
+							<label class="required">Location</label>
+							<input type="text" name="location" id="location" placeholder="e.g. 'Cedar Falls, IA'" required>
+						</div>
+
+						<div class="col-12 col-sm-6 col-lg-4">
+							<label class="required">Experience</label>
+							<select name="experience" id="experience" class="custom-select w-100" required>
+								<option value="" disabled selected hidden>Select your experience</option>
+								<option value="0-2 Years">0-2 Years</option>
+								<option value="3-5 Years">3-5 Years</option>
+								<option value="6-9 Years">6-9 Years</option>
+								<option value="10+ Years">10+ Years</option>
+							</select>
+						</div>
+
+						<div class="col-12 col-sm-6 col-lg-4">
+							<label class="required">Position Applying for</label>
+							<select name="position" id="position" class="custom-select w-100" required>
+								<option value="" disabled selected hidden>Select a position</option>
+								<option value="Early Childhood Educator">Early Childhood Educator</option>
+							</select>
+						</div>
+						<div class="col-12">
+							<div class="form-group">
+								<label for="exampleFormControlFile1" class="required">Resume file</label>
+								<input type="file" name="resume" class="form-control-file" id="resume" required>
+							</div>
+						</div>
+						<div class="col-12">
+							<label>Additional Information (optional)</label>
+							<textarea name="additional_info" id="additional_info" placeholder="Any additional information..."></textarea>
+						</div>
+						
+						<div style="display:none;">
+							<label>Leave this field empty</label>
+							<input type="text" name="email" id="email" tabindex="-1" autocomplete="off">
+						</div>
+					</div>
+					<button class="button button-lg button-turquiose button-radius" type="submit">Submit</button>
+				</form>
+				<div id="flash-message"></div>
+							</div>
+		</div><!-- end container -->
+	</div>
+	<!-- Job Listing Details -->
+
+	<footer>
+		<div class="section-sm">
+			<div class="container">
+				<div class="row g-4">
+					<div class="col-6 col-sm-6 col-lg-3">
+						<h3 class="uppercase letter-spacing-1">LP</h3>
+					</div>
+
+					<div class="col-6 col-sm-6 col-lg-3">
+						<h6 class="font-small fw-medium uppercase">Links</h6>
+						<ul class="list-dash animate-links">
+							<li><a href="/">Home</a></li>
+							<li><a href="http://jcsires.com">Website made by JCSires</a></li>
+
+						</ul>
+					</div>
+
+					<div class="col-6 col-sm-6 col-lg-3">
+						<h6 class="font-small fw-medium uppercase">Address</h6>
+						<ul class="list-unstyled">
+							<li>4710 Cedar Heights Drive, Cedar Falls</li>
+						</ul>
+					</div>
+					
+					<div class="col-6 col-sm-6 col-lg-3">
+						<h6 class="font-small fw-medium uppercase">Contact Info</h6>
+						<ul class="list-unstyled">
+							<li>info@learnandplaycv.com</li>
+							<li>(319) 266-7944</li>
+						</ul>
+					</div>
+				</div><!-- end row -->
+			</div><!-- end container -->
+		</div>
+		<div class="bg-black py-4">	
+			<div class="container">
+				<div class="row align-items-center g-2 g-lg-3">
+					<div class="col-12 col-md-6 text-center text-md-start">
+						<p>&copy; 2024 Learn & Play, All Rights Reserved.</p>
+					</div>
+					<div class="col-12 col-md-6 text-center text-md-end">
+						<ul class="list-inline-sm">
+							<li><a class="button-circle button-circle-sm button-circle-social-facebook" href="https://www.facebook.com/p/Learn-Play-Preschool-Daycare-100064329924185/?_rdr"><i class="bi bi-facebook"></i></a></li>
+							<li><a class="button-circle button-circle-sm button-circle-social-twitter" href=""><i class="bi bi-twitter-x"></i></a></li>
+							<li><a class="button-circle button-circle-sm button-circle-social-pinterest" href=""><i class="bi bi-pinterest"></i></a></li>
+							<li><a class="button-circle button-circle-sm button-circle-social-instagram" href=""><i class="bi bi-instagram"></i></a></li>
+						</ul>
+					</div>
+				</div><!-- end row -->
+			</div><!-- end container -->
+		</div>
+	</footer>
+
+	<!-- Scroll to top button -->
+	<div class="scrolltotop">
+		<a class="button-circle button-circle-md button-circle-dark" href="#"><i class="bi bi-arrow-up"></i></a>
+	</div>
+	<!-- end Scroll to top button -->
+	<script src="{{ url_for('static', path='assets/plugins/jquery.min.js') }}"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+	<script src="{{ url_for('static', path='assets/plugins/plugins.js') }}"></script>
+	<script src="{{ url_for('static', path='assets/js/functions.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			$('#jobApplicationForm').on('submit', function(event) {
+				event.preventDefault();
+
+				// Validate file type and size
+				if (!validateFile()) {
+					return false; // Prevent form submission if validation fails
+				}
+
+				// Disable submit button to prevent multiple submissions
+				const submitButton = $(this).find('button[type="submit"]');
+				submitButton.prop('disabled', true).text('Submitting...');
+				
+				const formElement = this;
+				
+				// Get reCAPTCHA token before submitting
+				if (typeof grecaptcha === 'undefined') {
+					console.error('❌ reCAPTCHA not loaded on careers form.');
+					submitButton.prop('disabled', false).text('Submit');
+					return;
+				}
+
+				if (!window.RECAPTCHA_SITE_KEY) {
+					console.error('❌ RECAPTCHA_SITE_KEY is not defined for careers form.');
+					submitButton.prop('disabled', false).text('Submit');
+					return;
+				}
+
+				grecaptcha.ready(function() {
+					grecaptcha.execute(window.RECAPTCHA_SITE_KEY, {action: 'careers_form'}).then(function(token) {
+						// Add the reCAPTCHA token to FormData
+						const formData = new FormData(formElement);
+						formData.append('recaptcha_token', token);
+
+						$.ajax({
+							type: 'POST',
+							url: '/careers',  // Make sure this is the correct endpoint for handling form submission
+							data: formData,
+							processData: false,
+							contentType: false,
+							success: function(response) {
+								$('#flash-message').html('<p>' + response.message + '</p>').css('color', response.status === 'success' ? 'green' : 'red');
+								// Clear the form
+								$('#jobApplicationForm')[0].reset();
+							},
+							error: function(xhr) {
+								const errorMsg = xhr.responseJSON?.message || 'An error occurred while submitting the form.';
+								$('#flash-message').html('<p>' + errorMsg + '</p>').css('color', 'red');
+							},
+							complete: function() {
+								// Re-enable the submit button
+								submitButton.prop('disabled', false).text('Submit');
+							}
+						});
+					});
+				});
+			});
+
+			function validateFile() {
+				var allowedExtensions = /(\.pdf|\.doc|\.docx|\.txt)$/i;
+				var fileInput = document.getElementById('resume');
+				var filePath = fileInput.value;
+				
+				if (!fileInput.files || !fileInput.files[0]) {
+					alert('Please select a file to upload.');
+					return false;
+				}
+				
+				var fileSize = fileInput.files[0].size / 1024 / 1024; // Size in MB
+				var maxSize = 5; // Max size in MB
+
+				if (!allowedExtensions.exec(filePath)) {
+					alert('Please upload a file with .pdf, .doc, .docx, or .txt extension.');
+					fileInput.value = ''; // Clear the input field
+					return false;
+				}
+
+				if (fileSize > maxSize) {
+					alert('File size exceeds ' + maxSize + ' MB. Please upload a smaller file.');
+					fileInput.value = ''; // Clear the input field
+					return false;
+				}
+
+				return true;
+			}
+		});
+	</script>
+	
+	<style>
+		.success {
+			color: green;
+		}
+
+		.error {
+			color: red;
+		}
+	</style>
+</body>
+</html>

@@ -1,0 +1,431 @@
+/*------------------------------------------------
+*
+* Theme Color - Tan
+*
+-------------------------------------------------*/
+.theme-color-tan a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover {
+  color: #d2b48c;
+}
+
+.theme-color-tan [class*='bg-gradient'] a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover,
+.theme-color-tan [class*='bg-color'] a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover {
+  color: white;
+}
+
+.theme-color-tan .header.header-color-theme {
+  background: #d2b48c;
+}
+
+.theme-color-tan .header .header-menu:not([class*='dropdown-color']) .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):hover, .theme-color-tan .header .header-menu:not([class*='dropdown-color']) .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):focus {
+  color: #d2b48c;
+}
+
+@media (min-width: 992px) {
+  .theme-color-tan .header .header-menu.dropdown-color-theme .nav .nav-item .nav-dropdown {
+    background: #d2b48c;
+  }
+  .theme-color-tan .header .header-menu.dropdown-color-theme .nav .nav-item .nav-dropdown .nav-dropdown-item .nav-subdropdown {
+    background: #d2b48c;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .theme-color-tan .header.mobile-menu-color-theme .header-menu {
+    background: #d2b48c;
+  }
+  .theme-color-tan .header[class*='mobile-menu-color'] .header-menu .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):hover, .theme-color-tan .header[class*='mobile-menu-color'] .header-menu .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):focus {
+    color: white;
+  }
+}
+
+.theme-color-tan .bg-color-theme {
+  background: #d2b48c;
+}
+
+.theme-color-tan .bg-color-theme-09 {
+  background: rgba(210, 180, 140, 0.9);
+}
+
+.theme-color-tan .bg-color-theme-08 {
+  background: rgba(210, 180, 140, 0.8);
+}
+
+.theme-color-tan .bg-color-theme-07 {
+  background: rgba(210, 180, 140, 0.7);
+}
+
+.theme-color-tan .bg-color-theme-06 {
+  background: rgba(210, 180, 140, 0.6);
+}
+
+.theme-color-tan .bg-color-theme-05 {
+  background: rgba(210, 180, 140, 0.5);
+}
+
+.theme-color-tan .bg-color-theme-04 {
+  background: rgba(210, 180, 140, 0.4);
+}
+
+.theme-color-tan .bg-color-theme-03 {
+  background: rgba(210, 180, 140, 0.3);
+}
+
+.theme-color-tan .bg-color-theme-02 {
+  background: rgba(210, 180, 140, 0.2);
+}
+
+.theme-color-tan .bg-color-theme-01 {
+  background: rgba(210, 180, 140, 0.1);
+}
+
+.theme-color-tan .bg-light-theme {
+  background: #f6f0e8;
+}
+
+.theme-color-tan .button-theme {
+  background: #d2b48c;
+}
+
+.theme-color-tan .button-outline-theme {
+  border-color: #d2b48c;
+  color: #d2b48c;
+}
+
+.theme-color-tan .button-outline-theme:hover, .theme-color-tan .button-outline-theme:focus {
+  background: #d2b48c;
+}
+
+.theme-color-tan .button-circle-theme {
+  background: #d2b48c;
+}
+
+.theme-color-tan .button-circle-outline-theme {
+  border-color: #d2b48c;
+  color: #d2b48c;
+}
+
+.theme-color-tan .button-circle-outline-theme:hover, .theme-color-tan .button-circle-outline-theme:focus {
+  background: #d2b48c;
+}
+
+.theme-color-tan .button-backdrop-color-theme {
+  background: #d2b48c;
+}
+
+.theme-color-tan .button-text-theme.button-text-1, .theme-color-tan .button-text-theme.button-text-2, .theme-color-tan .button-text-theme.button-text-3 {
+  color: #d2b48c;
+}
+
+.theme-color-tan .button-text-theme.button-text-1:hover, .theme-color-tan .button-text-theme.button-text-2:hover, .theme-color-tan .button-text-theme.button-text-3:hover {
+  color: #d2b48c;
+}
+
+.theme-color-tan .button-text-theme.button-text-1:before {
+  background: rgba(210, 180, 140, 0.3);
+}
+
+.theme-color-tan .button-text-theme.button-text-1:after {
+  background: #d2b48c;
+}
+
+.theme-color-tan .button-text-theme.button-text-2:before {
+  background: rgba(210, 180, 140, 0.1);
+}
+
+.theme-color-tan .button-text-theme.button-text-2:after {
+  background: #d2b48c;
+}
+
+.theme-color-tan .button-text-theme.button-text-3:before {
+  background: #d2b48c;
+}
+
+.theme-color-tan .button-text-theme.button-text-3:hover:before {
+  background: #d2b48c;
+}
+
+.theme-color-tan .bg-black .button-text-theme.button-text-1, .theme-color-tan .bg-black .button-text-theme.button-text-2, .theme-color-tan .bg-black .button-text-theme.button-text-3,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-1,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-2,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-3 {
+  color: #d2b48c;
+}
+
+.theme-color-tan .bg-black .button-text-theme.button-text-1:hover, .theme-color-tan .bg-black .button-text-theme.button-text-2:hover, .theme-color-tan .bg-black .button-text-theme.button-text-3:hover,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-1:hover,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-2:hover,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-3:hover {
+  color: #d2b48c;
+}
+
+.theme-color-tan .bg-black .button-text-theme.button-text-1:before,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-1:before {
+  background: rgba(210, 180, 140, 0.3);
+}
+
+.theme-color-tan .bg-black .button-text-theme.button-text-1:after,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-1:after {
+  background: #d2b48c;
+}
+
+.theme-color-tan .bg-black .button-text-theme.button-text-2:before,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-2:before {
+  background: rgba(210, 180, 140, 0.3);
+}
+
+.theme-color-tan .bg-black .button-text-theme.button-text-2:after,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-2:after {
+  background: #d2b48c;
+}
+
+.theme-color-tan .bg-black .button-text-theme.button-text-3:before,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-3:before {
+  background: #d2b48c;
+}
+
+.theme-color-tan .bg-black .button-text-theme.button-text-3:hover:before,
+.theme-color-tan [class*='bg-dark'] .button-text-theme.button-text-3:hover:before {
+  background: #d2b48c;
+}
+
+.theme-color-tan .text-color-theme {
+  color: #d2b48c;
+}
+
+.theme-color-tan .progress-box.progress-theme .animated-progress div {
+  background: #d2b48c;
+}
+
+.theme-color-tan [class*='bg-gradient'] .progress-box.progress-theme .animated-progress div,
+.theme-color-tan [class*='bg-color'] .progress-box.progress-theme .animated-progress div {
+  background: white;
+}
+
+.theme-color-tan.preloader-theme .preloader-1 div .loader-path {
+  stroke: #d2b48c;
+}
+
+.theme-color-tan.preloader-theme .preloader-2 div span {
+  background: #d2b48c;
+  background: linear-gradient(to right, #d2b48c 10%, transparent 40%);
+}
+
+.theme-color-tan.preloader-theme .preloader-2 div span:before {
+  background: #d2b48c;
+}
+
+.theme-color-tan.preloader-theme .preloader-3 div span:before, .theme-color-tan.preloader-theme .preloader-3 div span:after {
+  background: rgba(210, 180, 140, 0.2);
+}
+
+.theme-color-tan .accordion li .accordion-title {
+  border-color: rgba(210, 180, 140, 0.1);
+}
+
+.theme-color-tan .accordion li .accordion-title:before, .theme-color-tan .accordion li .accordion-title:after {
+  background: #d2b48c;
+}
+
+.theme-color-tan .accordion li .accordion-title h1, .theme-color-tan .accordion li .accordion-title h2, .theme-color-tan .accordion li .accordion-title h3, .theme-color-tan .accordion li .accordion-title h4, .theme-color-tan .accordion li .accordion-title h5, .theme-color-tan .accordion li .accordion-title h6 {
+  color: #d2b48c;
+}
+
+.theme-color-tan .accordion li.active .accordion-title {
+  border-color: #d2b48c;
+}
+
+.theme-color-tan .accordion.style-3 li .accordion-title {
+  background: #f6f0e8;
+}
+
+.theme-color-tan .accordion.style-3 li.active .accordion-title {
+  background: #d2b48c;
+  color: white;
+}
+
+.theme-color-tan .accordion.style-3 li.active .accordion-title:before, .theme-color-tan .accordion.style-3 li.active .accordion-title:after {
+  background: white;
+}
+
+.theme-color-tan .accordion.style-3 li.active .accordion-title h1, .theme-color-tan .accordion.style-3 li.active .accordion-title h2, .theme-color-tan .accordion.style-3 li.active .accordion-title h3, .theme-color-tan .accordion.style-3 li.active .accordion-title h4, .theme-color-tan .accordion.style-3 li.active .accordion-title h5, .theme-color-tan .accordion.style-3 li.active .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-tan .bg-black .accordion li .accordion-title,
+.theme-color-tan [class*='bg-dark'] .accordion li .accordion-title {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-color-tan .bg-black .accordion li .accordion-title:before, .theme-color-tan .bg-black .accordion li .accordion-title:after,
+.theme-color-tan [class*='bg-dark'] .accordion li .accordion-title:before,
+.theme-color-tan [class*='bg-dark'] .accordion li .accordion-title:after {
+  background: white;
+}
+
+.theme-color-tan .bg-black .accordion li.active .accordion-title,
+.theme-color-tan [class*='bg-dark'] .accordion li.active .accordion-title {
+  border-color: #d2b48c;
+}
+
+.theme-color-tan .bg-black .accordion.style-3 li .accordion-title,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li .accordion-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title {
+  background: #d2b48c;
+  color: white;
+}
+
+.theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title:before, .theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title:after,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title:before,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title:after {
+  background: white;
+}
+
+.theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title h1, .theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title h2, .theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title h3, .theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title h4, .theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title h5, .theme-color-tan .bg-black .accordion.style-3 li.active .accordion-title h6,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h1,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h2,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h3,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h4,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h5,
+.theme-color-tan [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title h1, .theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title h2, .theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title h3, .theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title h4, .theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title h5, .theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title h6,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title h1,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title h2,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title h3,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title h4,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title h5,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title:before, .theme-color-tan [class*='bg-gradient'] .accordion li .accordion-title:after,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title:before,
+.theme-color-tan [class*='bg-color'] .accordion li .accordion-title:after {
+  background: white;
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion li.active .accordion-title,
+.theme-color-tan [class*='bg-color'] .accordion li.active .accordion-title {
+  border-color: white;
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion.style-3 li .accordion-title,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li .accordion-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion.style-3 li .accordion-title h1, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li .accordion-title h2, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li .accordion-title h3, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li .accordion-title h4, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li .accordion-title h5, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li .accordion-title h6,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li .accordion-title h1,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li .accordion-title h2,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li .accordion-title h3,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li .accordion-title h4,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li .accordion-title h5,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title {
+  background: white;
+  color: #7C7C7C;
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title:before, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title:after,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title:before,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title:after {
+  background: black;
+}
+
+.theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h1, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h2, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h3, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h4, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h5, .theme-color-tan [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h6,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title h1,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title h2,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title h3,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title h4,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title h5,
+.theme-color-tan [class*='bg-color'] .accordion.style-3 li.active .accordion-title h6 {
+  color: black;
+}
+
+.theme-color-tan .text-link-2:before,
+.theme-color-tan .text-link-3:before,
+.theme-color-tan .text-link-4:before {
+  background: #d2b48c;
+}
+
+.theme-color-tan .text-link-5:after,
+.theme-color-tan .text-link-6:after,
+.theme-color-tan .text-link-7:after {
+  background: #d2b48c;
+}
+
+.theme-color-tan .text-link-8:before {
+  background: rgba(210, 180, 140, 0.1);
+}
+
+.theme-color-tan .bg-black .text-link-2:before,
+.theme-color-tan .bg-black .text-link-3:before,
+.theme-color-tan .bg-black .text-link-4:before,
+.theme-color-tan [class*='bg-dark'] .text-link-2:before,
+.theme-color-tan [class*='bg-dark'] .text-link-3:before,
+.theme-color-tan [class*='bg-dark'] .text-link-4:before {
+  background: #d2b48c;
+}
+
+.theme-color-tan .bg-black .text-link-5:after,
+.theme-color-tan .bg-black .text-link-6:after,
+.theme-color-tan .bg-black .text-link-7:after,
+.theme-color-tan [class*='bg-dark'] .text-link-5:after,
+.theme-color-tan [class*='bg-dark'] .text-link-6:after,
+.theme-color-tan [class*='bg-dark'] .text-link-7:after {
+  background: #d2b48c;
+}
+
+.theme-color-tan .bg-black .text-link-8:before,
+.theme-color-tan [class*='bg-dark'] .text-link-8:before {
+  background: rgba(210, 180, 140, 0.1);
+}
+
+.theme-color-tan [class*='bg-gradient'] .text-link-2:before, .theme-color-tan [class*='bg-gradient'] .text-link-3:before, .theme-color-tan [class*='bg-gradient'] .text-link-4:before,
+.theme-color-tan [class*='bg-color'] .text-link-2:before,
+.theme-color-tan [class*='bg-color'] .text-link-3:before,
+.theme-color-tan [class*='bg-color'] .text-link-4:before {
+  background: white;
+}
+
+.theme-color-tan [class*='bg-gradient'] .text-link-5:before, .theme-color-tan [class*='bg-gradient'] .text-link-6:before, .theme-color-tan [class*='bg-gradient'] .text-link-7:before,
+.theme-color-tan [class*='bg-color'] .text-link-5:before,
+.theme-color-tan [class*='bg-color'] .text-link-6:before,
+.theme-color-tan [class*='bg-color'] .text-link-7:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-color-tan [class*='bg-gradient'] .text-link-5:after, .theme-color-tan [class*='bg-gradient'] .text-link-6:after, .theme-color-tan [class*='bg-gradient'] .text-link-7:after,
+.theme-color-tan [class*='bg-color'] .text-link-5:after,
+.theme-color-tan [class*='bg-color'] .text-link-6:after,
+.theme-color-tan [class*='bg-color'] .text-link-7:after {
+  background: white;
+}
+
+.theme-color-tan [class*='bg-gradient'] .text-link-8:before,
+.theme-color-tan [class*='bg-color'] .text-link-8:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-color-tan .form-style-2 input:focus, .theme-color-tan .form-style-2 textarea:focus, .theme-color-tan .form-style-2 .custom-select:focus, .theme-color-tan .form-style-2 .form-control:focus,
+.theme-color-tan .form-style-4 input:focus,
+.theme-color-tan .form-style-4 textarea:focus,
+.theme-color-tan .form-style-4 .custom-select:focus,
+.theme-color-tan .form-style-4 .form-control:focus {
+  border-color: #d2b48c;
+}

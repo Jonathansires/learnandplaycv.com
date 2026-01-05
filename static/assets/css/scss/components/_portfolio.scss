@@ -1,0 +1,555 @@
+//
+// Portfolio Styles //
+//
+.portfolio-masonry {
+	.portfolio-item {
+		width: 100%;
+	}
+	.portfolio-item {
+		text-align: left;
+	}
+	//
+	// Portfolio Columns //
+	//
+	&.column-1 {
+		.portfolio-item { width: 100%; }
+	}
+	&.column-2 {
+		@include breakpoint-above(md) {
+			.portfolio-item { width: 50%; }
+		}
+	}
+	&.column-3 {
+		@include breakpoint-above(md) {
+			.portfolio-item { width: 50%; }
+		}
+		@include breakpoint-above(lg) {
+			.portfolio-item { width: 33.33%; }
+		}
+	}
+	&.column-4 {
+		@include breakpoint-above(sm) {
+			.portfolio-item { width: 50%; }
+		}
+		@include breakpoint-above(md) {
+			.portfolio-item { width: 33.33%; }
+		}
+		@include breakpoint-above(lg) {
+			.portfolio-item { width: 25%; }
+		}
+	}
+	&.column-5 {
+		@extend .column-4;
+		@include breakpoint-above(xl) {
+			.portfolio-item { width: 20%; }
+		}
+	}
+	&.column-6 {
+		@extend .column-4;
+		@include breakpoint-above(xl) {
+			.portfolio-item { width: 16.66%; }
+		}
+	}
+	//
+	// Portfolio box spacings //
+	//
+	&.spacing-0 { 
+		.portfolio-item { padding: 0; }
+	}
+	&.spacing-1 {
+		.portfolio-item { padding: 0.5em; }
+	}
+	&.spacing-2 {
+		.portfolio-item { padding: 1em; }
+	}
+	&.spacing-3 {
+		.portfolio-item { padding: 1.5em; }
+	}
+	&.spacing-4 {
+		.portfolio-item { padding: 2em; }
+	}
+	&.spacing-5 {
+		.portfolio-item { padding: 2.5em; }
+	}
+}
+.portfolio-masonry, 
+.portfolio-grid {
+	//
+	// Portfolio box border-radius //
+	//
+	&[class*='border-radius'] {
+		.portfolio-item {
+			.portfolio-box {
+				@include transform(translate3d(0,0,0));
+				overflow: hidden;
+			}
+		}
+	}
+	&.border-radius {
+		.portfolio-item .portfolio-box { border-radius: 0.4em; }
+	}
+	&.border-radius-1 {
+		.portfolio-item .portfolio-box { border-radius: 1.0em; }
+	}
+}
+.text-center {
+	.portfolio-item { text-align: center; }
+}
+.text-end {
+	.portfolio-item { text-align: right; }
+}
+
+.container {
+	.portfolio-masonry {
+		&.spacing-0 { margin: 0; }
+		&.spacing-1 { margin: -0.5em; }
+		&.spacing-2 { margin: -1em; }
+		&.spacing-3 { margin: -1.5em; }
+		&.spacing-4 { margin: -2em; }
+		&.spacing-5 { margin: -2.5em; }
+	}
+}
+
+//
+// Portfolio Filter Styles //
+//
+.filter {
+	ul {
+		margin: 0 -5px;
+		padding: 0;
+		li {
+			display: inline-block;
+			background: $button-gray-lighter;
+			border-radius: 30px;
+			margin: 0 5px;
+			padding: 7px 15px;
+			font: 500 0.9em $font-family-tertiary;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			cursor: pointer;
+			@include transition(linear 0.1s);
+			&:hover {
+				background: $button-gray;
+			}
+			&.active, &.mixitup-control-active {
+				background: $bg-dark;
+				color: white;
+			}
+		}
+	}
+	//
+	// Filter Font Styles //
+	//
+	&.filter-font-2 {
+		ul {
+			li {
+				font-size: 15px;
+				letter-spacing: -0.2px;
+				text-transform: none;
+			}
+		}
+	}
+	//
+	// Filter Styles //
+	//
+	&.filter-style-2 {
+		ul {
+			margin: 0 -2px;
+			li {
+				background: transparent;
+				margin: 0 2px;
+				color: $color-primary;
+				&:hover, &.active, &.mixitup-control-active {
+					color: $color-dark;
+				}
+				&.active, &.mixitup-control-active {
+					background: $button-gray-lighter;
+				}
+			}
+		}
+	}
+	&.filter-style-3 {
+		ul {
+			margin: 0 -14px -8px;
+			li {
+				position: relative;
+				background: transparent;
+				margin: 0 14px 8px;
+				padding: 0;
+				color: $color-primary;
+				&:after {
+					content: '';
+					position: absolute;
+					right: 0;
+					bottom: -1px;
+					left: 0;
+					background: $color-dark;
+					height: 1px;
+					@include animation(button-line-out 0.24s cubic-bezier(0.165, 0.84, 0.44, 1) both);
+				}
+				&:hover, &.active, &.mixitup-control-active {
+					color: $color-dark;
+				}
+				&.active, &.mixitup-control-active {
+					&:after {
+						width: 100%;
+						@include animation(button-line-in 0.24s cubic-bezier(0.165, 0.84, 0.44, 1) both);
+					}
+				}
+			}
+		}
+	}
+	&.filter-style-4 {
+		ul {
+			margin: 0 -14px -7px;
+			li {
+				background: transparent;
+				margin: 0 14px 7px;
+				padding: 0;
+				color: $color-primary-lighter;
+				&:hover, &.active, &.mixitup-control-active {
+					background: transparent;
+					color: $color-dark;
+				}
+			}
+		}
+	}
+}
+.theme-font-unito {
+	.filter {
+		ul {
+			li {
+				font: 600 0.9em $font-family-nunito;
+			}
+		}
+		&.filter-font-2 {
+			ul {
+				li {
+					font-size: 1em;
+					letter-spacing: 0;
+				}
+			}
+		}
+	}
+}
+.bg-black, 
+[class*='bg-dark'], 
+[class*='bg-gradient-'], 
+[class*='bg-color-'] {
+	.filter {
+		ul {
+			li {
+				background: transparent;
+				color: $color-white-07;
+				&:hover {
+					background: transparent;
+					color: white;
+				}
+				&.active, &.mixitup-control-active {
+					background: white;
+					color: $color-dark;
+				}
+			}
+		}
+		&.filter-style-2 {
+			ul {
+				li {
+					color: $color-white-07;
+					&:hover, &.active, &.mixitup-control-active {
+						color: white;
+					}
+					&.active, &.mixitup-control-active {
+						background: white;
+						color: $color-dark;
+					}
+				}
+			}
+		}
+		&.filter-style-3 {
+			ul {
+				li {
+					color: $color-white-07;
+					&:after {
+						background: white;
+					}
+					&:hover, &.active, &.mixitup-control-active {
+						color: white;
+					}
+					&.active, &.mixitup-control-active {
+						background: transparent;
+					}
+				}
+			}
+		}
+		&.filter-style-4 {
+			ul {
+				li {
+					background: transparent;
+					color: $color-white-07;
+					&:hover, &.active, &.mixitup-control-active {
+						background: transparent;
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// Hover Styles //
+//
+.portfolio-item {
+	.portfolio-box {
+		position: relative;
+		.portfolio-img {
+			position: relative;
+			overflow: hidden;
+			img {
+				@include transform(scale(1));
+				width: 100%;
+				@include transition(transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1));
+			}
+		}
+		a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		&:hover {
+			.portfolio-img {
+				img {
+					@include transform(scale(1.04));
+					@include filter(blur(1.5px));
+				}
+			}
+		}
+	}
+}
+.portfolio-grid, .portfolio-masonry {
+	&:not(.hover-style-2, .hover-style-3) {
+		.portfolio-item {
+			.portfolio-box {
+				.portfolio-title {
+					position: absolute;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					background-image: linear-gradient(to top, $color-dark-04, transparent);
+					width: 100%;
+					height: 100%;
+					@include transition(ease-out 0.12s);
+					div {
+						position: absolute;
+						left: 30px;
+						bottom: 30px;
+						* {
+							opacity: 0;
+							@include transform(translateY(5px));
+							margin-bottom: 0.5rem;
+							color: white;
+							@include transition(ease-out 0.12s);
+							&:first-child { @include transition-delay(0.05s); }
+							&:last-child { @include transition-delay(0.10s); margin-bottom: 0; }
+						}
+						span {
+							display: inline-block;
+						}
+					}
+				}
+				&:hover {
+					.portfolio-title {
+						opacity: 1;
+						* {
+							opacity: 1;
+							@include transform(translateY(0));
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// Hover Style 2 //
+//
+.hover-style-2 {
+	.portfolio-item {
+		.portfolio-box {
+			.portfolio-title {
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 1;
+				background: $color-dark-01;
+				width: 100%;
+				height: 100%;
+				@include transition(ease-out 0.12s);
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					background-image: linear-gradient(to top, $color-dark-03, transparent);
+					width: 100%;
+					height: 100%;
+					@include transition(ease-out 0.12s);
+				}
+				div {
+					position: absolute;
+					top: 30px;
+					left: 30px;
+					span {
+						display: block;
+					}
+					* {
+						margin-bottom: 0.5rem;
+						color: white;
+						@include transition(ease-out 0.12s);
+					}
+				}
+				i {
+					position: absolute;
+					right: 30px;
+					bottom: 30px;
+					@include transform(translateY(5px));
+					opacity: 0;
+					font-size: 1.2em;
+					color: white;
+					@include transition(ease-out 0.12s);
+				}
+			}
+			&:hover {
+				.portfolio-title {
+					&:before {
+						opacity: 1;
+					}
+					i {
+						@include transform(translateY(0));
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+//
+// Hover style 3 //
+//
+.hover-style-3 {
+	.portfolio-item {
+		.portfolio-box {
+			.portfolio-title {
+				position: absolute;
+				right: 1.5rem;
+				bottom: 1.5rem;
+				left: 1.5rem;
+				.portfolio-title-item {
+					display: table;
+					@include transform(translateY(4px));
+					visibility: hidden;
+					opacity: 0;
+					background: white;
+					margin-bottom: 0.25rem;
+					padding: 0.6rem 1rem;
+					@include transition(ease-out 0.12s);
+					&:last-child {
+						margin-bottom: 0;
+					}
+					&:nth-child(1) { @include transition-delay(0.05s); }
+					&:nth-child(2) { @include transition-delay(0.10s); }
+					&:nth-child(3) { @include transition-delay(0.15s); }
+					* {
+						margin-bottom: 0;
+						color: $color-dark;
+					}
+				}
+			}
+			@include breakpoint-less(md) {
+				.portfolio-title {
+					right: 1.25rem;
+					bottom: 1.25rem;
+					left: 1.25rem;
+				}
+			}
+			&:hover {
+				.portfolio-title {
+					.portfolio-title-item {
+						@include transform(translateY(0));
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Hero Portfolio //
+//
+.hero-portfolio-slider {
+	.hero-portfolio-box {
+		position: relative;
+		a {
+			display: block;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		.hero-portfolio-img {
+			overflow: hidden;
+			@include transform(translate3d(0,0,0));
+			img {
+				@include transition(transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1));
+			}
+		}
+		.hero-portfolio-caption {
+			visibility: hidden;
+			opacity: 0;
+			position: absolute;
+			top: 50%;
+			left: -50px;
+			@include transform(translateY(-50%));
+			background: $color-dark-09;
+			max-width: 70%;
+			padding: 1.5rem 2rem;
+			@include transition(ease-out 0.16s);
+			* {
+				color: white;
+				margin: 0;
+			}
+			@include breakpoint-less(sm) {
+				left: 50%;
+				@include transform(translate(-50%, -50%));
+				padding: 1rem 1.5rem;
+			}
+		}
+		&:hover {
+			.hero-portfolio-img {
+				img {
+					@include transform(scale(1.04));
+				}
+			}
+		}
+	}
+	.swiper-wrapper {
+		.swiper-slide {
+			&.swiper-slide-active {
+				.hero-portfolio-caption {
+					visibility: visible;
+					opacity: 1;
+					text-align: center;
+				}
+			}
+		}
+	}
+}

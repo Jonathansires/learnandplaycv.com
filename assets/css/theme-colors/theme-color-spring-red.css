@@ -1,0 +1,431 @@
+/*------------------------------------------------
+*
+* Theme Color - Spring Red
+*
+-------------------------------------------------*/
+.theme-color-spring-red a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover {
+  color: #BE1F35;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover,
+.theme-color-spring-red [class*='bg-color'] a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover {
+  color: white;
+}
+
+.theme-color-spring-red .header.header-color-theme {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .header .header-menu:not([class*='dropdown-color']) .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):hover, .theme-color-spring-red .header .header-menu:not([class*='dropdown-color']) .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):focus {
+  color: #BE1F35;
+}
+
+@media (min-width: 992px) {
+  .theme-color-spring-red .header .header-menu.dropdown-color-theme .nav .nav-item .nav-dropdown {
+    background: #BE1F35;
+  }
+  .theme-color-spring-red .header .header-menu.dropdown-color-theme .nav .nav-item .nav-dropdown .nav-dropdown-item .nav-subdropdown {
+    background: #BE1F35;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .theme-color-spring-red .header.mobile-menu-color-theme .header-menu {
+    background: #BE1F35;
+  }
+  .theme-color-spring-red .header[class*='mobile-menu-color'] .header-menu .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):hover, .theme-color-spring-red .header[class*='mobile-menu-color'] .header-menu .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):focus {
+    color: white;
+  }
+}
+
+.theme-color-spring-red .bg-color-theme {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .bg-color-theme-09 {
+  background: rgba(190, 31, 53, 0.9);
+}
+
+.theme-color-spring-red .bg-color-theme-08 {
+  background: rgba(190, 31, 53, 0.8);
+}
+
+.theme-color-spring-red .bg-color-theme-07 {
+  background: rgba(190, 31, 53, 0.7);
+}
+
+.theme-color-spring-red .bg-color-theme-06 {
+  background: rgba(190, 31, 53, 0.6);
+}
+
+.theme-color-spring-red .bg-color-theme-05 {
+  background: rgba(190, 31, 53, 0.5);
+}
+
+.theme-color-spring-red .bg-color-theme-04 {
+  background: rgba(190, 31, 53, 0.4);
+}
+
+.theme-color-spring-red .bg-color-theme-03 {
+  background: rgba(190, 31, 53, 0.3);
+}
+
+.theme-color-spring-red .bg-color-theme-02 {
+  background: rgba(190, 31, 53, 0.2);
+}
+
+.theme-color-spring-red .bg-color-theme-01 {
+  background: rgba(190, 31, 53, 0.1);
+}
+
+.theme-color-spring-red .bg-light-theme {
+  background: #F7E5E7;
+}
+
+.theme-color-spring-red .button-theme {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .button-outline-theme {
+  border-color: #BE1F35;
+  color: #BE1F35;
+}
+
+.theme-color-spring-red .button-outline-theme:hover, .theme-color-spring-red .button-outline-theme:focus {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .button-circle-theme {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .button-circle-outline-theme {
+  border-color: #BE1F35;
+  color: #BE1F35;
+}
+
+.theme-color-spring-red .button-circle-outline-theme:hover, .theme-color-spring-red .button-circle-outline-theme:focus {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .button-backdrop-color-theme {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .button-text-theme.button-text-1, .theme-color-spring-red .button-text-theme.button-text-2, .theme-color-spring-red .button-text-theme.button-text-3 {
+  color: #BE1F35;
+}
+
+.theme-color-spring-red .button-text-theme.button-text-1:hover, .theme-color-spring-red .button-text-theme.button-text-2:hover, .theme-color-spring-red .button-text-theme.button-text-3:hover {
+  color: #BE1F35;
+}
+
+.theme-color-spring-red .button-text-theme.button-text-1:before {
+  background: rgba(190, 31, 53, 0.3);
+}
+
+.theme-color-spring-red .button-text-theme.button-text-1:after {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .button-text-theme.button-text-2:before {
+  background: rgba(190, 31, 53, 0.1);
+}
+
+.theme-color-spring-red .button-text-theme.button-text-2:after {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .button-text-theme.button-text-3:before {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .button-text-theme.button-text-3:hover:before {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .button-text-theme.button-text-1, .theme-color-spring-red .bg-black .button-text-theme.button-text-2, .theme-color-spring-red .bg-black .button-text-theme.button-text-3,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-1,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-2,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-3 {
+  color: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .button-text-theme.button-text-1:hover, .theme-color-spring-red .bg-black .button-text-theme.button-text-2:hover, .theme-color-spring-red .bg-black .button-text-theme.button-text-3:hover,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-1:hover,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-2:hover,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-3:hover {
+  color: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .button-text-theme.button-text-1:before,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-1:before {
+  background: rgba(190, 31, 53, 0.3);
+}
+
+.theme-color-spring-red .bg-black .button-text-theme.button-text-1:after,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-1:after {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .button-text-theme.button-text-2:before,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-2:before {
+  background: rgba(190, 31, 53, 0.3);
+}
+
+.theme-color-spring-red .bg-black .button-text-theme.button-text-2:after,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-2:after {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .button-text-theme.button-text-3:before,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-3:before {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .button-text-theme.button-text-3:hover:before,
+.theme-color-spring-red [class*='bg-dark'] .button-text-theme.button-text-3:hover:before {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .text-color-theme {
+  color: #BE1F35;
+}
+
+.theme-color-spring-red .progress-box.progress-theme .animated-progress div {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .progress-box.progress-theme .animated-progress div,
+.theme-color-spring-red [class*='bg-color'] .progress-box.progress-theme .animated-progress div {
+  background: white;
+}
+
+.theme-color-spring-red.preloader-theme .preloader-1 div .loader-path {
+  stroke: #BE1F35;
+}
+
+.theme-color-spring-red.preloader-theme .preloader-2 div span {
+  background: #BE1F35;
+  background: linear-gradient(to right, #BE1F35 10%, transparent 40%);
+}
+
+.theme-color-spring-red.preloader-theme .preloader-2 div span:before {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red.preloader-theme .preloader-3 div span:before, .theme-color-spring-red.preloader-theme .preloader-3 div span:after {
+  background: rgba(190, 31, 53, 0.2);
+}
+
+.theme-color-spring-red .accordion li .accordion-title {
+  border-color: rgba(190, 31, 53, 0.1);
+}
+
+.theme-color-spring-red .accordion li .accordion-title:before, .theme-color-spring-red .accordion li .accordion-title:after {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .accordion li .accordion-title h1, .theme-color-spring-red .accordion li .accordion-title h2, .theme-color-spring-red .accordion li .accordion-title h3, .theme-color-spring-red .accordion li .accordion-title h4, .theme-color-spring-red .accordion li .accordion-title h5, .theme-color-spring-red .accordion li .accordion-title h6 {
+  color: #BE1F35;
+}
+
+.theme-color-spring-red .accordion li.active .accordion-title {
+  border-color: #BE1F35;
+}
+
+.theme-color-spring-red .accordion.style-3 li .accordion-title {
+  background: #F7E5E7;
+}
+
+.theme-color-spring-red .accordion.style-3 li.active .accordion-title {
+  background: #BE1F35;
+  color: white;
+}
+
+.theme-color-spring-red .accordion.style-3 li.active .accordion-title:before, .theme-color-spring-red .accordion.style-3 li.active .accordion-title:after {
+  background: white;
+}
+
+.theme-color-spring-red .accordion.style-3 li.active .accordion-title h1, .theme-color-spring-red .accordion.style-3 li.active .accordion-title h2, .theme-color-spring-red .accordion.style-3 li.active .accordion-title h3, .theme-color-spring-red .accordion.style-3 li.active .accordion-title h4, .theme-color-spring-red .accordion.style-3 li.active .accordion-title h5, .theme-color-spring-red .accordion.style-3 li.active .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-spring-red .bg-black .accordion li .accordion-title,
+.theme-color-spring-red [class*='bg-dark'] .accordion li .accordion-title {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-color-spring-red .bg-black .accordion li .accordion-title:before, .theme-color-spring-red .bg-black .accordion li .accordion-title:after,
+.theme-color-spring-red [class*='bg-dark'] .accordion li .accordion-title:before,
+.theme-color-spring-red [class*='bg-dark'] .accordion li .accordion-title:after {
+  background: white;
+}
+
+.theme-color-spring-red .bg-black .accordion li.active .accordion-title,
+.theme-color-spring-red [class*='bg-dark'] .accordion li.active .accordion-title {
+  border-color: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .accordion.style-3 li .accordion-title,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li .accordion-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title {
+  background: #BE1F35;
+  color: white;
+}
+
+.theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title:before, .theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title:after,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title:before,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title:after {
+  background: white;
+}
+
+.theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title h1, .theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title h2, .theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title h3, .theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title h4, .theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title h5, .theme-color-spring-red .bg-black .accordion.style-3 li.active .accordion-title h6,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h1,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h2,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h3,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h4,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h5,
+.theme-color-spring-red [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title h1, .theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title h2, .theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title h3, .theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title h4, .theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title h5, .theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title h6,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title h1,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title h2,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title h3,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title h4,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title h5,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title:before, .theme-color-spring-red [class*='bg-gradient'] .accordion li .accordion-title:after,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title:before,
+.theme-color-spring-red [class*='bg-color'] .accordion li .accordion-title:after {
+  background: white;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion li.active .accordion-title,
+.theme-color-spring-red [class*='bg-color'] .accordion li.active .accordion-title {
+  border-color: white;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li .accordion-title,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li .accordion-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li .accordion-title h1, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li .accordion-title h2, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li .accordion-title h3, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li .accordion-title h4, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li .accordion-title h5, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li .accordion-title h6,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li .accordion-title h1,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li .accordion-title h2,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li .accordion-title h3,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li .accordion-title h4,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li .accordion-title h5,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title {
+  background: white;
+  color: #7C7C7C;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title:before, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title:after,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title:before,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title:after {
+  background: black;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h1, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h2, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h3, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h4, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h5, .theme-color-spring-red [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h6,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title h1,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title h2,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title h3,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title h4,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title h5,
+.theme-color-spring-red [class*='bg-color'] .accordion.style-3 li.active .accordion-title h6 {
+  color: black;
+}
+
+.theme-color-spring-red .text-link-2:before,
+.theme-color-spring-red .text-link-3:before,
+.theme-color-spring-red .text-link-4:before {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .text-link-5:after,
+.theme-color-spring-red .text-link-6:after,
+.theme-color-spring-red .text-link-7:after {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .text-link-8:before {
+  background: rgba(190, 31, 53, 0.1);
+}
+
+.theme-color-spring-red .bg-black .text-link-2:before,
+.theme-color-spring-red .bg-black .text-link-3:before,
+.theme-color-spring-red .bg-black .text-link-4:before,
+.theme-color-spring-red [class*='bg-dark'] .text-link-2:before,
+.theme-color-spring-red [class*='bg-dark'] .text-link-3:before,
+.theme-color-spring-red [class*='bg-dark'] .text-link-4:before {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .text-link-5:after,
+.theme-color-spring-red .bg-black .text-link-6:after,
+.theme-color-spring-red .bg-black .text-link-7:after,
+.theme-color-spring-red [class*='bg-dark'] .text-link-5:after,
+.theme-color-spring-red [class*='bg-dark'] .text-link-6:after,
+.theme-color-spring-red [class*='bg-dark'] .text-link-7:after {
+  background: #BE1F35;
+}
+
+.theme-color-spring-red .bg-black .text-link-8:before,
+.theme-color-spring-red [class*='bg-dark'] .text-link-8:before {
+  background: rgba(190, 31, 53, 0.1);
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .text-link-2:before, .theme-color-spring-red [class*='bg-gradient'] .text-link-3:before, .theme-color-spring-red [class*='bg-gradient'] .text-link-4:before,
+.theme-color-spring-red [class*='bg-color'] .text-link-2:before,
+.theme-color-spring-red [class*='bg-color'] .text-link-3:before,
+.theme-color-spring-red [class*='bg-color'] .text-link-4:before {
+  background: white;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .text-link-5:before, .theme-color-spring-red [class*='bg-gradient'] .text-link-6:before, .theme-color-spring-red [class*='bg-gradient'] .text-link-7:before,
+.theme-color-spring-red [class*='bg-color'] .text-link-5:before,
+.theme-color-spring-red [class*='bg-color'] .text-link-6:before,
+.theme-color-spring-red [class*='bg-color'] .text-link-7:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .text-link-5:after, .theme-color-spring-red [class*='bg-gradient'] .text-link-6:after, .theme-color-spring-red [class*='bg-gradient'] .text-link-7:after,
+.theme-color-spring-red [class*='bg-color'] .text-link-5:after,
+.theme-color-spring-red [class*='bg-color'] .text-link-6:after,
+.theme-color-spring-red [class*='bg-color'] .text-link-7:after {
+  background: white;
+}
+
+.theme-color-spring-red [class*='bg-gradient'] .text-link-8:before,
+.theme-color-spring-red [class*='bg-color'] .text-link-8:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-color-spring-red .form-style-2 input:focus, .theme-color-spring-red .form-style-2 textarea:focus, .theme-color-spring-red .form-style-2 .custom-select:focus, .theme-color-spring-red .form-style-2 .form-control:focus,
+.theme-color-spring-red .form-style-4 input:focus,
+.theme-color-spring-red .form-style-4 textarea:focus,
+.theme-color-spring-red .form-style-4 .custom-select:focus,
+.theme-color-spring-red .form-style-4 .form-control:focus {
+  border-color: #BE1F35;
+}

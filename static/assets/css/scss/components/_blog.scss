@@ -1,0 +1,106 @@
+//
+// Blog Styles //
+//
+.blog-card-wrapper {
+	position: relative;
+	background-position: center center;
+    background-attachment: scroll;
+    @include background-size(cover);
+    background-repeat: no-repeat;
+	width: 100%;
+	* {
+		@include transition(ease-out 0.12s);
+	}
+	.blog-card {
+		background: white;
+	}
+	&:hover {
+		color: $color-white-07;
+		h1,h2,h3,h4,h5,h6 { color: white; }
+		a {
+			&:not([class^='button']) {
+				color: $color-white-08;
+				&:hover, &:focus { color: white; }
+			}
+		}
+		.blog-card {
+			background: $color-dark-06;
+		}
+		.button-text-1, 
+		.button-text-2, 
+		.button-text-3 {
+			color: $color-white-08;
+			&:hover {
+				color: white;
+			}
+		}
+		.button-text-1 {
+			&:before { background: $color-white-03; }
+			&:after { background: white; }
+		}
+		.button-text-2 {
+			&:before { background: $color-white-04; }
+			&:after { background: white; }
+		}
+		.button-text-3 {
+			&:before { background: $color-white-08; }
+			&:hover {
+				&:before { background: white; }
+			}
+		}
+	}
+	@include breakpoint-above(lg) {
+		.blog-card {
+			padding: 36px 36px 36px 140px;
+			.blog-card-date {
+				position: absolute;
+				top: 50%;
+				left: 36px;
+				@include transform(translateY(-50%));
+				text-align: center;
+			}
+		}
+	}
+	@include breakpoint-less(md) {
+		.blog-card {
+			padding: 24px;
+		}
+	}
+}
+
+
+//
+// Comment box //
+//
+.comment-box {
+	position: relative;
+	margin-bottom: 30px;
+	padding-left: 80px;
+	.comment-user-avatar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: $bg-gray;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 60px;
+		img {
+			width: 60px;
+			height: 60px;
+		}
+	}
+	.comment-content {
+		position: relative;
+		.comment-time {
+			position: absolute;
+			top: 0;
+			right: 0;
+			text-align: right;
+			color: $color-primary-lighter;
+			font-style: italic;
+			font-size: 14px;
+		}
+	}
+}

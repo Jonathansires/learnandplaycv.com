@@ -1,0 +1,431 @@
+/*------------------------------------------------
+*
+* Theme Color - Pink Edge
+*
+-------------------------------------------------*/
+.theme-color-pink-edge a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover {
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover,
+.theme-color-pink-edge [class*='bg-color'] a:not([class^='button']):not([class^="link-social"]):not(.header-logo a):hover {
+  color: white;
+}
+
+.theme-color-pink-edge .header.header-color-theme {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .header .header-menu:not([class*='dropdown-color']) .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):hover, .theme-color-pink-edge .header .header-menu:not([class*='dropdown-color']) .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):focus {
+  color: #FE9AB6;
+}
+
+@media (min-width: 992px) {
+  .theme-color-pink-edge .header .header-menu.dropdown-color-theme .nav .nav-item .nav-dropdown {
+    background: #FE9AB6;
+  }
+  .theme-color-pink-edge .header .header-menu.dropdown-color-theme .nav .nav-item .nav-dropdown .nav-dropdown-item .nav-subdropdown {
+    background: #FE9AB6;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .theme-color-pink-edge .header.mobile-menu-color-theme .header-menu {
+    background: #FE9AB6;
+  }
+  .theme-color-pink-edge .header[class*='mobile-menu-color'] .header-menu .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):hover, .theme-color-pink-edge .header[class*='mobile-menu-color'] .header-menu .nav .nav-item .nav-dropdown a:not([class^='button']):not([class^="link-social"]):focus {
+    color: white;
+  }
+}
+
+.theme-color-pink-edge .bg-color-theme {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-color-theme-09 {
+  background: rgba(254, 154, 182, 0.9);
+}
+
+.theme-color-pink-edge .bg-color-theme-08 {
+  background: rgba(254, 154, 182, 0.8);
+}
+
+.theme-color-pink-edge .bg-color-theme-07 {
+  background: rgba(254, 154, 182, 0.7);
+}
+
+.theme-color-pink-edge .bg-color-theme-06 {
+  background: rgba(254, 154, 182, 0.6);
+}
+
+.theme-color-pink-edge .bg-color-theme-05 {
+  background: rgba(254, 154, 182, 0.5);
+}
+
+.theme-color-pink-edge .bg-color-theme-04 {
+  background: rgba(254, 154, 182, 0.4);
+}
+
+.theme-color-pink-edge .bg-color-theme-03 {
+  background: rgba(254, 154, 182, 0.3);
+}
+
+.theme-color-pink-edge .bg-color-theme-02 {
+  background: rgba(254, 154, 182, 0.2);
+}
+
+.theme-color-pink-edge .bg-color-theme-01 {
+  background: rgba(254, 154, 182, 0.1);
+}
+
+.theme-color-pink-edge .bg-light-theme {
+  background: #FEE6ED;
+}
+
+.theme-color-pink-edge .button-theme {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-outline-theme {
+  border-color: #FE9AB6;
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-outline-theme:hover, .theme-color-pink-edge .button-outline-theme:focus {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-circle-theme {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-circle-outline-theme {
+  border-color: #FE9AB6;
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-circle-outline-theme:hover, .theme-color-pink-edge .button-circle-outline-theme:focus {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-backdrop-color-theme {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-text-theme.button-text-1, .theme-color-pink-edge .button-text-theme.button-text-2, .theme-color-pink-edge .button-text-theme.button-text-3 {
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-text-theme.button-text-1:hover, .theme-color-pink-edge .button-text-theme.button-text-2:hover, .theme-color-pink-edge .button-text-theme.button-text-3:hover {
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-text-theme.button-text-1:before {
+  background: rgba(254, 154, 182, 0.3);
+}
+
+.theme-color-pink-edge .button-text-theme.button-text-1:after {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-text-theme.button-text-2:before {
+  background: rgba(254, 154, 182, 0.1);
+}
+
+.theme-color-pink-edge .button-text-theme.button-text-2:after {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-text-theme.button-text-3:before {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .button-text-theme.button-text-3:hover:before {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .button-text-theme.button-text-1, .theme-color-pink-edge .bg-black .button-text-theme.button-text-2, .theme-color-pink-edge .bg-black .button-text-theme.button-text-3,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-1,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-2,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-3 {
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .button-text-theme.button-text-1:hover, .theme-color-pink-edge .bg-black .button-text-theme.button-text-2:hover, .theme-color-pink-edge .bg-black .button-text-theme.button-text-3:hover,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-1:hover,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-2:hover,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-3:hover {
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .button-text-theme.button-text-1:before,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-1:before {
+  background: rgba(254, 154, 182, 0.3);
+}
+
+.theme-color-pink-edge .bg-black .button-text-theme.button-text-1:after,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-1:after {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .button-text-theme.button-text-2:before,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-2:before {
+  background: rgba(254, 154, 182, 0.3);
+}
+
+.theme-color-pink-edge .bg-black .button-text-theme.button-text-2:after,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-2:after {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .button-text-theme.button-text-3:before,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-3:before {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .button-text-theme.button-text-3:hover:before,
+.theme-color-pink-edge [class*='bg-dark'] .button-text-theme.button-text-3:hover:before {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .text-color-theme {
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge .progress-box.progress-theme .animated-progress div {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .progress-box.progress-theme .animated-progress div,
+.theme-color-pink-edge [class*='bg-color'] .progress-box.progress-theme .animated-progress div {
+  background: white;
+}
+
+.theme-color-pink-edge.preloader-theme .preloader-1 div .loader-path {
+  stroke: #FE9AB6;
+}
+
+.theme-color-pink-edge.preloader-theme .preloader-2 div span {
+  background: #FE9AB6;
+  background: linear-gradient(to right, #FE9AB6 10%, transparent 40%);
+}
+
+.theme-color-pink-edge.preloader-theme .preloader-2 div span:before {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge.preloader-theme .preloader-3 div span:before, .theme-color-pink-edge.preloader-theme .preloader-3 div span:after {
+  background: rgba(254, 154, 182, 0.2);
+}
+
+.theme-color-pink-edge .accordion li .accordion-title {
+  border-color: rgba(254, 154, 182, 0.1);
+}
+
+.theme-color-pink-edge .accordion li .accordion-title:before, .theme-color-pink-edge .accordion li .accordion-title:after {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .accordion li .accordion-title h1, .theme-color-pink-edge .accordion li .accordion-title h2, .theme-color-pink-edge .accordion li .accordion-title h3, .theme-color-pink-edge .accordion li .accordion-title h4, .theme-color-pink-edge .accordion li .accordion-title h5, .theme-color-pink-edge .accordion li .accordion-title h6 {
+  color: #FE9AB6;
+}
+
+.theme-color-pink-edge .accordion li.active .accordion-title {
+  border-color: #FE9AB6;
+}
+
+.theme-color-pink-edge .accordion.style-3 li .accordion-title {
+  background: #FEE6ED;
+}
+
+.theme-color-pink-edge .accordion.style-3 li.active .accordion-title {
+  background: #FE9AB6;
+  color: white;
+}
+
+.theme-color-pink-edge .accordion.style-3 li.active .accordion-title:before, .theme-color-pink-edge .accordion.style-3 li.active .accordion-title:after {
+  background: white;
+}
+
+.theme-color-pink-edge .accordion.style-3 li.active .accordion-title h1, .theme-color-pink-edge .accordion.style-3 li.active .accordion-title h2, .theme-color-pink-edge .accordion.style-3 li.active .accordion-title h3, .theme-color-pink-edge .accordion.style-3 li.active .accordion-title h4, .theme-color-pink-edge .accordion.style-3 li.active .accordion-title h5, .theme-color-pink-edge .accordion.style-3 li.active .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-pink-edge .bg-black .accordion li .accordion-title,
+.theme-color-pink-edge [class*='bg-dark'] .accordion li .accordion-title {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-color-pink-edge .bg-black .accordion li .accordion-title:before, .theme-color-pink-edge .bg-black .accordion li .accordion-title:after,
+.theme-color-pink-edge [class*='bg-dark'] .accordion li .accordion-title:before,
+.theme-color-pink-edge [class*='bg-dark'] .accordion li .accordion-title:after {
+  background: white;
+}
+
+.theme-color-pink-edge .bg-black .accordion li.active .accordion-title,
+.theme-color-pink-edge [class*='bg-dark'] .accordion li.active .accordion-title {
+  border-color: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .accordion.style-3 li .accordion-title,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li .accordion-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title {
+  background: #FE9AB6;
+  color: white;
+}
+
+.theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title:before, .theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title:after,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title:before,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title:after {
+  background: white;
+}
+
+.theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title h1, .theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title h2, .theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title h3, .theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title h4, .theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title h5, .theme-color-pink-edge .bg-black .accordion.style-3 li.active .accordion-title h6,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h1,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h2,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h3,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h4,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h5,
+.theme-color-pink-edge [class*='bg-dark'] .accordion.style-3 li.active .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title h1, .theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title h2, .theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title h3, .theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title h4, .theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title h5, .theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title h6,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title h1,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title h2,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title h3,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title h4,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title h5,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title:before, .theme-color-pink-edge [class*='bg-gradient'] .accordion li .accordion-title:after,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title:before,
+.theme-color-pink-edge [class*='bg-color'] .accordion li .accordion-title:after {
+  background: white;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion li.active .accordion-title,
+.theme-color-pink-edge [class*='bg-color'] .accordion li.active .accordion-title {
+  border-color: white;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li .accordion-title,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li .accordion-title {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li .accordion-title h1, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li .accordion-title h2, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li .accordion-title h3, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li .accordion-title h4, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li .accordion-title h5, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li .accordion-title h6,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li .accordion-title h1,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li .accordion-title h2,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li .accordion-title h3,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li .accordion-title h4,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li .accordion-title h5,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li .accordion-title h6 {
+  color: white;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title {
+  background: white;
+  color: #7C7C7C;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title:before, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title:after,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title:before,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title:after {
+  background: black;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h1, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h2, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h3, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h4, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h5, .theme-color-pink-edge [class*='bg-gradient'] .accordion.style-3 li.active .accordion-title h6,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title h1,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title h2,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title h3,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title h4,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title h5,
+.theme-color-pink-edge [class*='bg-color'] .accordion.style-3 li.active .accordion-title h6 {
+  color: black;
+}
+
+.theme-color-pink-edge .text-link-2:before,
+.theme-color-pink-edge .text-link-3:before,
+.theme-color-pink-edge .text-link-4:before {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .text-link-5:after,
+.theme-color-pink-edge .text-link-6:after,
+.theme-color-pink-edge .text-link-7:after {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .text-link-8:before {
+  background: rgba(254, 154, 182, 0.1);
+}
+
+.theme-color-pink-edge .bg-black .text-link-2:before,
+.theme-color-pink-edge .bg-black .text-link-3:before,
+.theme-color-pink-edge .bg-black .text-link-4:before,
+.theme-color-pink-edge [class*='bg-dark'] .text-link-2:before,
+.theme-color-pink-edge [class*='bg-dark'] .text-link-3:before,
+.theme-color-pink-edge [class*='bg-dark'] .text-link-4:before {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .text-link-5:after,
+.theme-color-pink-edge .bg-black .text-link-6:after,
+.theme-color-pink-edge .bg-black .text-link-7:after,
+.theme-color-pink-edge [class*='bg-dark'] .text-link-5:after,
+.theme-color-pink-edge [class*='bg-dark'] .text-link-6:after,
+.theme-color-pink-edge [class*='bg-dark'] .text-link-7:after {
+  background: #FE9AB6;
+}
+
+.theme-color-pink-edge .bg-black .text-link-8:before,
+.theme-color-pink-edge [class*='bg-dark'] .text-link-8:before {
+  background: rgba(254, 154, 182, 0.1);
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .text-link-2:before, .theme-color-pink-edge [class*='bg-gradient'] .text-link-3:before, .theme-color-pink-edge [class*='bg-gradient'] .text-link-4:before,
+.theme-color-pink-edge [class*='bg-color'] .text-link-2:before,
+.theme-color-pink-edge [class*='bg-color'] .text-link-3:before,
+.theme-color-pink-edge [class*='bg-color'] .text-link-4:before {
+  background: white;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .text-link-5:before, .theme-color-pink-edge [class*='bg-gradient'] .text-link-6:before, .theme-color-pink-edge [class*='bg-gradient'] .text-link-7:before,
+.theme-color-pink-edge [class*='bg-color'] .text-link-5:before,
+.theme-color-pink-edge [class*='bg-color'] .text-link-6:before,
+.theme-color-pink-edge [class*='bg-color'] .text-link-7:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .text-link-5:after, .theme-color-pink-edge [class*='bg-gradient'] .text-link-6:after, .theme-color-pink-edge [class*='bg-gradient'] .text-link-7:after,
+.theme-color-pink-edge [class*='bg-color'] .text-link-5:after,
+.theme-color-pink-edge [class*='bg-color'] .text-link-6:after,
+.theme-color-pink-edge [class*='bg-color'] .text-link-7:after {
+  background: white;
+}
+
+.theme-color-pink-edge [class*='bg-gradient'] .text-link-8:before,
+.theme-color-pink-edge [class*='bg-color'] .text-link-8:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-color-pink-edge .form-style-2 input:focus, .theme-color-pink-edge .form-style-2 textarea:focus, .theme-color-pink-edge .form-style-2 .custom-select:focus, .theme-color-pink-edge .form-style-2 .form-control:focus,
+.theme-color-pink-edge .form-style-4 input:focus,
+.theme-color-pink-edge .form-style-4 textarea:focus,
+.theme-color-pink-edge .form-style-4 .custom-select:focus,
+.theme-color-pink-edge .form-style-4 .form-control:focus {
+  border-color: #FE9AB6;
+}
