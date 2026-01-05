@@ -6,7 +6,8 @@ from Email_manager import Email_manager
 import os
 import logging
 import httpx
-from typing import Dict, Any, Optional
+import time
+from typing import Dict, Any, Optional, Tuple
 
 # Configure logging
 logging.basicConfig(
@@ -32,13 +33,14 @@ email_manager = Email_manager()
 RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify"
 PRODUCTION_SITE_KEY = "6Ldwt_QrAAAAAJe16NGYB5W5RLqeMibHLQu2or1r"
 PRODUCTION_SECRET_KEY = "6Ldwt_QrAAAAAGUlbPlLHvG7ZUalEbA1bInb1vzD"
-PRODUCTION_MIN_SCORE = 0.5
+PRODUCTION_MIN_SCORE = 0.7
 
 TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
 TEST_SECRET_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
 TEST_MIN_SCORE = 0.0
 
 PRODUCTION_HOSTS = {"learnandplaycv.com", "www.learnandplaycv.com", "jcsires.com", "www.jcsires.com"}
+MIN_FORM_COMPLETION_SECONDS = 60
 
 
 def get_recaptcha_config(hostname: Optional[str]) -> Dict[str, Any]:
@@ -71,6 +73,19 @@ def get_request_context(request: Request) -> Dict[str, str]:
         client_ip = request.client.host if request.client else ""
 
     return {"host": host, "client_ip": client_ip}
+
+
+def submission_too_fast(timestamp: Optional[str]) -> Tuple[bool, Optional[float]]:
+    """Determine whether the form was submitted faster than allowed."""
+    if not timestamp:
+        return True, None
+    try:
+        form_time = float(timestamp)
+    except (TypeError, ValueError):
+        return True, None
+
+    elapsed = time.time() - form_time
+    return elapsed < MIN_FORM_COMPLETION_SECONDS, max(elapsed, 0.0)
 
 async def verify_recaptcha(token: str, remote_ip: str, secret_key: str, min_score: float):
     """Verify reCAPTCHA v3 token with Google."""
@@ -127,6 +142,7 @@ async def one_get(request: Request):
         {
             "request": request,
             "recaptcha_site_key": recaptcha_config["site_key"],
+            "form_rendered_at": str(time.time()),
         },
     )
 
@@ -140,7 +156,9 @@ async def one_post(
     age: str = Form(...),
     message: str = Form(...),
     phone: str = Form(None),  # Honeypot field
+    preferred_contact_window: str = Form(None),  # Secondary honeypot field
     recaptcha_token: str = Form(None),  # reCAPTCHA token
+    form_rendered_at: str = Form(None),
 ):
     context = get_request_context(request)
     recaptcha_config = get_recaptcha_config(context["host"])
@@ -150,6 +168,20 @@ async def one_post(
     
     # Get client IP
     client_ip = context["client_ip"]
+
+    too_fast, elapsed = submission_too_fast(form_rendered_at)
+    if too_fast:
+        elapsed_msg = f"{elapsed:.2f}s" if elapsed is not None else "unknown duration"
+        logger.warning(
+            f"Contact form submission blocked from IP {client_ip}: completed in {elapsed_msg}."
+        )
+        return JSONResponse(
+            {
+                "status": "error",
+                "message": "Please take a bit more time before submitting the form.",
+            },
+            status_code=status.HTTP_400_BAD_REQUEST,
+        )
     
     # Verify reCAPTCHA
     if recaptcha_token:
@@ -171,7 +203,7 @@ async def one_post(
         logger.warning(f"⚠️  NO reCAPTCHA token provided from IP {client_ip} - form submitted without bot protection!")
     
     # Honeypot check
-    if phone:  # Honeypot field to catch bots
+    if phone or preferred_contact_window:  # Honeypot fields to catch bots
         logger.warning(f"Honeypot triggered by request from {client_ip}")
         return JSONResponse({"status": "error", "message": "Spam detected!"})
 
@@ -217,6 +249,7 @@ async def careers_get(request: Request):
         {
             "request": request,
             "recaptcha_site_key": recaptcha_config["site_key"],
+            "form_rendered_at": str(time.time()),
         },
     )
 
@@ -234,6 +267,7 @@ async def careers_post(
     resume: UploadFile = File(...),
     additional_info: str = Form(None),
     recaptcha_token: str = Form(None),  # reCAPTCHA token
+    form_rendered_at: str = Form(None),
 ):
     context = get_request_context(request)
     recaptcha_config = get_recaptcha_config(context["host"])
@@ -243,6 +277,20 @@ async def careers_post(
     
     # Get client IP
     client_ip = context["client_ip"]
+
+    too_fast, elapsed = submission_too_fast(form_rendered_at)
+    if too_fast:
+        elapsed_msg = f"{elapsed:.2f}s" if elapsed is not None else "unknown duration"
+        logger.warning(
+            f"Careers form submission blocked from IP {client_ip}: completed in {elapsed_msg}."
+        )
+        return JSONResponse(
+            {
+                "status": "error",
+                "message": "Please review the form for at least a minute before submitting.",
+            },
+            status_code=status.HTTP_400_BAD_REQUEST,
+        )
     
     # Verify reCAPTCHA
     if recaptcha_token:
@@ -266,7 +314,8 @@ async def careers_post(
     # Honeypot check
     form_data = await request.form()
     honeypot = form_data.get("email")
-    if honeypot:
+    secondary_honeypot = form_data.get("portfolio_window")
+    if honeypot or secondary_honeypot:
         logger.warning(f"Honeypot triggered by request from {client_ip}")
         return JSONResponse(
             {"status": "error", "message": "Spam detected!"},

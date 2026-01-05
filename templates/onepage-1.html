@@ -158,8 +158,9 @@
                         <p>4710 Cedar Heights Drive, Cedar Falls</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-8 text-md-end">
-                    <form id="contactForm">
+				<div class="col-12 col-md-8 text-md-end">
+					<form id="contactForm">
+						<input type="hidden" name="form_rendered_at" value="{{ form_rendered_at }}">
                         <div class="row gx-3 gy-0">
                             <div class="col-12 col-sm-6">
                                 <input type="text" id="name" name="name" placeholder="Name" required>
@@ -173,9 +174,13 @@
                         <input type="text" id="age" name="age" placeholder="Childs Date Of Birth" required>
 						</div>
 						</div>
-                        <textarea name="message" id="message" placeholder="Message" required></textarea>						
-						
-                        <input type="text" id="phone" name="phone" style="display:none">
+						<textarea name="message" id="message" placeholder="Message" required></textarea>						
+                        
+						<input type="text" id="phone" name="phone" style="display:none">
+						<div class="hp-wrapper" aria-hidden="true">
+							<label for="preferred_contact_window">Preferred contact window</label>
+							<input type="text" id="preferred_contact_window" name="preferred_contact_window" autocomplete="off" tabindex="-1">
+						</div>
                         <button class="button button-lg" type="submit">Send Message</button>
                     </form>
                     <!-- Submit result -->
@@ -337,6 +342,14 @@
 		
 			.error {
 				color: red;
+			}
+
+			.hp-wrapper {
+				position: absolute;
+				left: -9999px;
+				height: 1px;
+				width: 1px;
+				overflow: hidden;
 			}
 		</style>
 			</body>
