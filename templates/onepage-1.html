@@ -275,60 +275,61 @@
 		<script src="{{ url_for('static', path='assets/js/functions.js') }}"></script>
 		<script>
 			$(document).ready(function() {
-				console.log('Contact form script loaded');
-				
-				// Check if reCAPTCHA is available
-				if (typeof grecaptcha === 'undefined') {
-					console.error('❌ reCAPTCHA not loaded! Check if script is blocked.');
-				} else {
-					console.log('✅ reCAPTCHA loaded successfully');
-				}
-
-				if (!window.RECAPTCHA_SITE_KEY) {
-					console.error('❌ RECAPTCHA_SITE_KEY is not defined.');
-					return;
-				}
-				
 				$('#contactForm').on('submit', function(event) {
 					event.preventDefault();
-					console.log('Form submitted, getting reCAPTCHA token...');
-					
-					// Disable the submit button to prevent multiple submissions
+
 					const submitButton = $(this).find('button[type="submit"]');
 					submitButton.prop('disabled', true).text('Sending...');
-
 					const formElement = this;
+					const resetButton = function() {
+						submitButton.prop('disabled', false).text('Send Message');
+					};
+					const showError = function(message) {
+						$('#flash-message').html($('<p>').text(message)).css('color', 'red');
+					};
 
-					// Get reCAPTCHA token before submitting
+					if (typeof grecaptcha === 'undefined' || !window.RECAPTCHA_SITE_KEY) {
+						showError('Human verification could not load. Please refresh the page and try again.');
+						resetButton();
+						return;
+					}
+
+					let verificationExpired = false;
+					const verificationTimer = setTimeout(function() {
+						verificationExpired = true;
+						showError('Human verification timed out. Please check your connection and try again.');
+						resetButton();
+					}, 12000);
+
 					grecaptcha.ready(function() {
-						console.log('reCAPTCHA ready, executing...');
 						grecaptcha.execute(window.RECAPTCHA_SITE_KEY, {action: 'contact'}).then(function(token) {
-							console.log('✅ reCAPTCHA token received:', token.substring(0, 20) + '...');
-							// Add token to form data
-							const formData = $(formElement).serialize() + '&recaptcha_token=' + token;
+							clearTimeout(verificationTimer);
+							if (verificationExpired) return;
+							const formData = $(formElement).serializeArray();
+							formData.push({name: 'recaptcha_token', value: token});
 
 							$.ajax({
 								type: 'POST',
-								url: '/',  // Adjust the URL as needed
+								url: '/',
 								data: formData,
+								timeout: 20000,
 								success: function(response) {
-									console.log('✅ Form submitted successfully:', response);
 									$('#flash-message').html('<p>' + response.message + '</p>').css('color', response.status === 'success' ? 'green' : 'red');
-									// Clear the form
 									$('#contactForm')[0].reset();
 								},
-								error: function(xhr, status, error) {
-									console.error('❌ Form submission error:', status, error);
-									$('#flash-message').html('<p>An error occurred while submitting the form.</p>').css('color', 'red');
+								error: function(xhr, status) {
+									const message = xhr.responseJSON && xhr.responseJSON.message
+										? xhr.responseJSON.message
+										: (status === 'timeout' ? 'The request timed out. Please try again.' : 'An error occurred while submitting the form.');
+									showError(message);
 								},
-								complete: function() {
-									// Re-enable the submit button after the request is complete
-									submitButton.prop('disabled', false).text('Send Message');
-								}
+								complete: resetButton
 							});
 						}).catch(function(error) {
-							console.error('❌ reCAPTCHA execute failed:', error);
-							submitButton.prop('disabled', false).text('Send Message');
+							clearTimeout(verificationTimer);
+							console.error('reCAPTCHA execute failed:', error);
+							showError('Human verification failed. Please refresh the page and try again.');
+							resetButton();
 						});
 					});
 				});
