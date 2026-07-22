@@ -2,12 +2,16 @@ from fastapi import FastAPI, Form, Request, UploadFile, File, BackgroundTasks, H
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from Email_manager import Email_manager
 import os
 import logging
 import httpx
 import time
 from typing import Dict, Any, Optional, Tuple
+from dotenv import load_dotenv
+
+load_dotenv()
+
+from Email_manager import Email_manager
 
 # Configure logging
 logging.basicConfig(
@@ -24,23 +28,34 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
-emails = ["sires_mary@yahoo.com","jonnysires@yahoo.com"]
+emails = [
+    address.strip()
+    for address in os.getenv("CONTACT_RECIPIENTS", "").split(",")
+    if address.strip()
+]
 
 # Initialize email manager
 email_manager = Email_manager()
 
 # reCAPTCHA Configuration
 RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify"
-PRODUCTION_SITE_KEY = "6Ldwt_QrAAAAAJe16NGYB5W5RLqeMibHLQu2or1r"
-PRODUCTION_SECRET_KEY = "6Ldwt_QrAAAAAGUlbPlLHvG7ZUalEbA1bInb1vzD"
-PRODUCTION_MIN_SCORE = 0.7
+PRODUCTION_SITE_KEY = os.getenv("RECAPTCHA_SITE_KEY", "")
+PRODUCTION_SECRET_KEY = os.getenv("RECAPTCHA_SECRET_KEY", "")
+PRODUCTION_MIN_SCORE = float(os.getenv("RECAPTCHA_MIN_SCORE", "0.7"))
 
 TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
 TEST_SECRET_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
 TEST_MIN_SCORE = 0.0
 
-PRODUCTION_HOSTS = {"learnandplaycv.com", "www.learnandplaycv.com", "jcsires.com", "www.jcsires.com"}
-MIN_FORM_COMPLETION_SECONDS = 60
+PRODUCTION_HOSTS = {
+    host.strip().lower()
+    for host in os.getenv(
+        "PRODUCTION_HOSTS",
+        "learnandplaycv.com,www.learnandplaycv.com",
+    ).split(",")
+    if host.strip()
+}
+MIN_FORM_COMPLETION_SECONDS = int(os.getenv("MIN_FORM_COMPLETION_SECONDS", "60"))
 
 
 def get_recaptcha_config(hostname: Optional[str]) -> Dict[str, Any]:

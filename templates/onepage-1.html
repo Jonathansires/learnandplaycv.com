@@ -287,49 +287,49 @@
 					const showError = function(message) {
 						$('#flash-message').html($('<p>').text(message)).css('color', 'red');
 					};
+					let requestStarted = false;
+					const submitForm = function(token) {
+						if (requestStarted) return;
+						requestStarted = true;
+						const formData = $(formElement).serializeArray();
+						if (token) formData.push({name: 'recaptcha_token', value: token});
+
+						$.ajax({
+							type: 'POST',
+							url: '/',
+							data: formData,
+							timeout: 20000,
+							success: function(response) {
+								$('#flash-message').html($('<p>').text(response.message)).css('color', response.status === 'success' ? 'green' : 'red');
+								if (response.status === 'success') $('#contactForm')[0].reset();
+							},
+							error: function(xhr, status) {
+								const message = xhr.responseJSON && xhr.responseJSON.message
+									? xhr.responseJSON.message
+									: (status === 'timeout' ? 'The request timed out. Please try again.' : 'An error occurred while submitting the form.');
+								showError(message);
+							},
+							complete: resetButton
+						});
+					};
 
 					if (typeof grecaptcha === 'undefined' || !window.RECAPTCHA_SITE_KEY) {
-						showError('Human verification could not load. Please refresh the page and try again.');
-						resetButton();
+						submitForm();
 						return;
 					}
 
-					let verificationExpired = false;
 					const verificationTimer = setTimeout(function() {
-						verificationExpired = true;
-						showError('Human verification timed out. Please check your connection and try again.');
-						resetButton();
+						submitForm();
 					}, 12000);
 
 					grecaptcha.ready(function() {
 						grecaptcha.execute(window.RECAPTCHA_SITE_KEY, {action: 'contact'}).then(function(token) {
 							clearTimeout(verificationTimer);
-							if (verificationExpired) return;
-							const formData = $(formElement).serializeArray();
-							formData.push({name: 'recaptcha_token', value: token});
-
-							$.ajax({
-								type: 'POST',
-								url: '/',
-								data: formData,
-								timeout: 20000,
-								success: function(response) {
-									$('#flash-message').html('<p>' + response.message + '</p>').css('color', response.status === 'success' ? 'green' : 'red');
-									$('#contactForm')[0].reset();
-								},
-								error: function(xhr, status) {
-									const message = xhr.responseJSON && xhr.responseJSON.message
-										? xhr.responseJSON.message
-										: (status === 'timeout' ? 'The request timed out. Please try again.' : 'An error occurred while submitting the form.');
-									showError(message);
-								},
-								complete: resetButton
-							});
+							submitForm(token);
 						}).catch(function(error) {
 							clearTimeout(verificationTimer);
 							console.error('reCAPTCHA execute failed:', error);
-							showError('Human verification failed. Please refresh the page and try again.');
-							resetButton();
+							submitForm();
 						});
 					});
 				});

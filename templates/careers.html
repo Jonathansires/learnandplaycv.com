@@ -262,61 +262,53 @@
 				submitButton.prop('disabled', true).text('Submitting...');
 				
 				const formElement = this;
-				
-				// Get reCAPTCHA token before submitting
-				if (typeof grecaptcha === 'undefined') {
-					console.error('❌ reCAPTCHA not loaded on careers form.');
-					submitButton.prop('disabled', false).text('Submit');
+				let requestStarted = false;
+				const submitForm = function(token) {
+					if (requestStarted) return;
+					requestStarted = true;
+					const formData = new FormData(formElement);
+					if (token) formData.append('recaptcha_token', token);
+
+					$.ajax({
+						type: 'POST',
+						url: '/careers',
+						data: formData,
+						processData: false,
+						contentType: false,
+						timeout: 30000,
+						success: function(response) {
+							$('#flash-message').html($('<p>').text(response.message)).css('color', response.status === 'success' ? 'green' : 'red');
+							if (response.status === 'success') $('#jobApplicationForm')[0].reset();
+						},
+						error: function(xhr, status) {
+							const errorMsg = xhr.responseJSON && xhr.responseJSON.message
+								? xhr.responseJSON.message
+								: (status === 'timeout' ? 'The request timed out. Please try again.' : 'An error occurred while submitting the form.');
+							$('#flash-message').html($('<p>').text(errorMsg)).css('color', 'red');
+						},
+						complete: function() {
+							submitButton.prop('disabled', false).text('Submit');
+						}
+					});
+				};
+
+				if (typeof grecaptcha === 'undefined' || !window.RECAPTCHA_SITE_KEY) {
+					submitForm();
 					return;
 				}
 
-				if (!window.RECAPTCHA_SITE_KEY) {
-					console.error('❌ RECAPTCHA_SITE_KEY is not defined for careers form.');
-					submitButton.prop('disabled', false).text('Submit');
-					return;
-				}
-
-				let verificationExpired = false;
 				const verificationTimer = setTimeout(function() {
-					verificationExpired = true;
-					$('#flash-message').html('<p>Human verification timed out. Please check your connection and try again.</p>').css('color', 'red');
-					submitButton.prop('disabled', false).text('Submit');
+					submitForm();
 				}, 12000);
 
 				grecaptcha.ready(function() {
 					grecaptcha.execute(window.RECAPTCHA_SITE_KEY, {action: 'careers_form'}).then(function(token) {
 						clearTimeout(verificationTimer);
-						if (verificationExpired) return;
-						// Add the reCAPTCHA token to FormData
-						const formData = new FormData(formElement);
-						formData.append('recaptcha_token', token);
-
-						$.ajax({
-							type: 'POST',
-							url: '/careers',  // Make sure this is the correct endpoint for handling form submission
-							data: formData,
-							processData: false,
-							contentType: false,
-							timeout: 30000,
-							success: function(response) {
-								$('#flash-message').html('<p>' + response.message + '</p>').css('color', response.status === 'success' ? 'green' : 'red');
-								// Clear the form
-								$('#jobApplicationForm')[0].reset();
-							},
-							error: function(xhr) {
-								const errorMsg = xhr.responseJSON?.message || 'An error occurred while submitting the form.';
-								$('#flash-message').html('<p>' + errorMsg + '</p>').css('color', 'red');
-							},
-							complete: function() {
-								// Re-enable the submit button
-								submitButton.prop('disabled', false).text('Submit');
-							}
-						});
+						submitForm(token);
 					}).catch(function(error) {
 						clearTimeout(verificationTimer);
 						console.error('reCAPTCHA execute failed:', error);
-						$('#flash-message').html('<p>Human verification failed. Please refresh the page and try again.</p>').css('color', 'red');
-						submitButton.prop('disabled', false).text('Submit');
+						submitForm();
 					});
 				});
 			});

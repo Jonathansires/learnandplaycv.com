@@ -1,9 +1,10 @@
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 email_sender = os.getenv("EMAIL_SENDER", "no-reply@learnandplaycv.com")
-email_password = os.getenv("EMAIL_PASSWORD", "Killersniper11")
+email_password = os.getenv("EMAIL_PASSWORD", "")
 
-SMTP_HOST = "mail.privateemail.com"
-SMTP_PORT = 465  # For SSL
-
+SMTP_HOST = os.getenv("SMTP_HOST", "mail.privateemail.com")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
