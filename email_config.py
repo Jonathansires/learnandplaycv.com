@@ -1,7 +1,12 @@
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    load_dotenv = None
+
+if load_dotenv:
+    load_dotenv()
 
 email_sender = os.getenv("EMAIL_SENDER", "no-reply@learnandplaycv.com")
 email_password = os.getenv("EMAIL_PASSWORD", "")

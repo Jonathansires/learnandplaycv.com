@@ -7,9 +7,13 @@ import logging
 import httpx
 import time
 from typing import Dict, Any, Optional, Tuple
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    load_dotenv = None
 
-load_dotenv()
+if load_dotenv:
+    load_dotenv()
 
 from Email_manager import Email_manager
 
