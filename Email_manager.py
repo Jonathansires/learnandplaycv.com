@@ -72,7 +72,7 @@ class Email_manager:
 
 
 
-    def email_form(self, name: str, email: str, age: int, message: str) -> str:
+    def email_form(self, name: str, email: str, age: str, message: str) -> str:
         """Generate email content for a form submission, including a reply button."""
 
         return f"""<!DOCTYPE html>
@@ -96,7 +96,7 @@ class Email_manager:
                     <ul>
                         <li>Name: {name}</li>
                         <li>Email: {email}</li>
-                        <li>Date Of Birth: {age}</li>
+                        <li>Child's Age: {age}</li>
                         <li>Message: {message}</li>
                     </ul>
                 </div>
