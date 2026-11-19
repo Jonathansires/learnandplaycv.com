@@ -20,7 +20,7 @@ class EmployeeTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.env = patch.dict(os.environ, {
             "EMPLOYEE_DATABASE": str(Path(self.temp.name) / "employees.sqlite3"),
-            "ADMIN_USERNAME": "owner", "ADMIN_PASSWORD_HASH": admin.password_hash("a very strong test password"),
+            "ADMIN_PASSWORD": "", "ADMIN_USERNAME": "owner", "ADMIN_PASSWORD_HASH": admin.password_hash("a very strong test password"),
             "ADMIN_COOKIE_SECURE": "false",
         })
         self.env.start()
@@ -134,8 +134,30 @@ class EmployeeTests(unittest.TestCase):
             db.execute('UPDATE admin_sessions SET expires = ?', (int(time.time()) - 1,))
         self.assertEqual(self.client.post('/admin/employees/new', data={'csrf': csrf, 'name': 'Expired'}).status_code, 403)
 
+    def test_password_from_env_takes_precedence_over_legacy_hash(self):
+        with patch.dict(os.environ, {'ADMIN_PASSWORD': 'my direct env password ☀'}):
+            page = self.client.get('/admin/login')
+            csrf = self.csrf(page)
+            response = self.client.post('/admin/login', data={
+                'csrf': csrf, 'username': 'owner', 'password': 'a very strong test password',
+            })
+            self.assertEqual(response.status_code, 401)
+            response = self.client.post('/admin/login', data={
+                'csrf': csrf, 'username': 'owner', 'password': 'my direct env password ☀',
+            })
+            self.assertEqual(response.status_code, 303)
+            self.assertEqual(self.client.get('/admin/employees').status_code, 200)
+
+    def test_password_from_env_needs_no_hash(self):
+        with patch.dict(os.environ, {'ADMIN_PASSWORD': 'my direct env password', 'ADMIN_PASSWORD_HASH': ''}):
+            page = self.client.get('/admin/login')
+            response = self.client.post('/admin/login', data={
+                'csrf': self.csrf(page), 'username': 'owner', 'password': 'my direct env password',
+            })
+            self.assertEqual(response.status_code, 303)
+
     def test_no_default_password_and_secure_cookie(self):
-        with patch.dict(os.environ, {'ADMIN_PASSWORD_HASH': '', 'ADMIN_COOKIE_SECURE': 'true'}):
+        with patch.dict(os.environ, {'ADMIN_PASSWORD': '', 'ADMIN_PASSWORD_HASH': '', 'ADMIN_COOKIE_SECURE': 'true'}):
             response = self.client.get('/admin/login')
             self.assertIn('hasn’t been configured', response.text)
             self.assertIn('Secure', response.headers['set-cookie'])

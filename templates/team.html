@@ -1,11 +1,119 @@
 {% extends "people_base.html" %}
 {% block content %}
-<section class="team-hero"><div class="shell hero-inner"><div><p class="eyebrow">THE PEOPLE BEHIND THE PLAY</p><h1>Caring hearts.<br><span>Growing minds.</span></h1><p class="intro">Meet the people who make Learn & Play a welcoming place to learn, explore, and grow.</p></div><div class="hero-art" aria-hidden="true"><span class="sun">✳</span><span class="art-caption">A little care.<br>A world of possibility.</span><span class="dot"></span></div></div></section>
-<section class="shell team-section" aria-labelledby="team-heading"><div class="section-heading"><div><p class="eyebrow">OUR TEAM</p><h2 id="team-heading">Familiar faces. Friendly smiles.</h2></div><p>A community built around your child.</p></div>
-{% if employees %}<div class="team-grid">
-{% for employee in employees %}<article class="person-card"><div class="portrait">
-{% if employee.photo_version %}<img src="/team/photos/{{ employee.id }}?v={{ employee.photo_version }}" alt="{{ employee.name }}" width="600" height="600" loading="lazy">{% else %}<span class="initial" aria-hidden="true">{{ employee.name[0] | upper }}</span>{% endif %}
-</div><div class="person-details"><h3>{{ employee.name }}</h3>{% if employee.title %}<p>{{ employee.title }}</p>{% endif %}</div></article>{% endfor %}
-</div>{% else %}<div class="empty-state"><span class="empty-flower" aria-hidden="true">✳</span><h3>We look forward to meeting you.</h3><p>Our team introductions are on the way. Get in touch to learn more about the people caring for your child.</p><a class="button" href="/#contact">Contact Learn & Play</a></div>{% endif %}
-</section><section class="shell contact-banner"><div><p class="eyebrow">COME SAY HELLO</p><h2>A great beginning starts with a visit.</h2><p>We’d love to welcome your family to Learn & Play.</p></div><a class="button" href="/#contact">Plan a visit</a></section>
+		<div class="section-lg bg-image bg-image-gradient-top" data-bg-src="/static/assets/images/background.jpg">
+			<div class="bg-white-07">
+				<div class="container">
+					<div class="row g-4">
+						<div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">
+							<h2 class="fw-light m-0">We believe that great things in business are never done by one person. They're done by a team of people.</h2>
+						</div>
+					</div><!-- end row -->
+				</div><!-- end container -->
+			</div>
+		</div>
+
+        <!-- Team section -->
+        <div class="section-lg pt-0">
+            <div class="container">
+                <div class="row g-4 text-center">
+                    {% for employee in employees %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="border border-radius p-4 h-100">
+                            {% if employee.photo_version %}
+                            <img class="img-mask-avatar-md employee-photo" src="/team/photos/{{ employee.id }}?v={{ employee.photo_version }}" alt="{{ employee.name }}" width="100" height="100" loading="lazy">
+                            {% else %}
+                            <span class="employee-initial bg-gray d-inline-flex align-items-center justify-content-center rounded-circle" aria-hidden="true">{{ employee.name[0] | upper }}</span>
+                            {% endif %}
+                            <div class="mt-4 employee-copy">
+                                <h5 class="fw-normal mb-0">{{ employee.name }}</h5>
+                                {% if employee.title %}<span class="font-small fw-normal">{{ employee.title }}</span>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="col-12">
+                        <div class="border border-radius p-4">
+                            <h5 class="fw-normal">Meet our team</h5>
+                            <p>Our team introductions are coming soon.</p>
+                            <a class="button button-md button-dark button-radius mt-3" href="/#contact">Contact Us</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </div>
+        <!-- end Team section -->
+		<!-- Clients section -->
+		<div class="section-lg pt-0">
+			<div class="container">
+				<div class="mb-5 text-center">
+					<h2 class="fw-light">Our Amazing Clients</h2>
+				</div>
+				<ul class="clients-grid column-5">
+					<!-- 1 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 2 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 3 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 4 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 5 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 6 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 7 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 8 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 9 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+					<!-- 10 -->
+					<li>
+						<a href="#">
+							<img src="/static/assets/images/col-5.jpg" alt="">
+						</a>
+					</li>
+				</ul>
+			</div><!-- end container -->
+		</div>
+		<!-- end Clients section -->
+
+
 {% endblock %}

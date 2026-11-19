@@ -1,28 +1,137 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Meet the people who help children learn, play, and grow at Learn & Play in Cedar Falls.">
-  {% if admin_page %}<meta name="robots" content="noindex,nofollow">{% endif %}
-  <title>{% block title %}Our team{% endblock %} | Learn & Play</title>
-  <link rel="icon" href="/static/favicon.ico">
-  <link rel="stylesheet" href="/static/assets/css/people.css">
-</head>
-<body>
-  <header class="site-header"><div class="shell header-inner">
-    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">lp<span>✳</span></span><span>Learn & Play<small>Preschool & Daycare</small></span></a>
-    <nav aria-label="Main navigation">
-      {% if admin_page %}
-        <a href="/admin/employees">Employees</a><a href="/team" target="_blank" rel="noopener">View team page</a>
-        {% if csrf and request.url.path != '/admin/login' %}<form action="/admin/logout" method="post"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="text-button" type="submit">Sign out</button></form>{% endif %}
-      {% else %}
-        <a href="/">Home</a><a href="/team" aria-current="page">Our team</a><a href="/careers">Careers</a><a class="button small" href="/#contact">Get in touch</a>
-      {% endif %}
-    </nav>
-  </div></header>
-  <main>{% block content %}{% endblock %}</main>
-  <footer class="site-footer"><div class="shell footer-inner"><div><strong>Small moments. Big discoveries.</strong><p>Learn & Play Preschool & Daycare · Cedar Falls, Iowa</p></div><a href="/admin/employees">Admin sign in</a></div></footer>
-  {% block scripts %}{% endblock %}
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Learn & Play Preschool and Daycare in Cedar Falls, Iowa.">
+        <meta name="keywords" content="">
+		<title>{% block title %}Our Team{% endblock %} | Learn & Play</title>
+        {% if admin_page %}<meta name="robots" content="noindex,nofollow">{% endif %}
+		<!-- Favicon -->
+        <link href="/static/favicon.ico" rel="shortcut icon">
+		<!-- CSS -->
+		<link href="{{ url_for('static', path='assets/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/owl-carousel/owl.carousel.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/owl-carousel/owl.theme.default.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/scrollcue/scrollcue.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/css/theme.css') }}" rel="stylesheet">
+		<!-- Fonts/Icons -->
+		<link href="{{ url_for('static', path='assets/plugins/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', path='assets/plugins/font-awesome/css/all.css') }}" rel="stylesheet">
+
+        <link href="/static/assets/css/people.css" rel="stylesheet">
+	</head>
+	<body data-preloader="1">
+
+		<!-- Header -->
+		<div class="header center header-color-dark sticky">
+			<div class="container">
+				<!-- Logo -->
+				<div class="header-logo">
+					<h3><a href="/">Learn & Play</a></h3>
+
+				</div>
+				<!-- Menu -->
+                <div class="header-menu">
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        {% if admin_page %}
+                        <li class="nav-item"><a class="nav-link" href="/admin/employees">Employees</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/team" target="_blank" rel="noopener">View Team</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/team" aria-current="page">Team</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+				<!-- Menu Extra -->
+				<div class="header-menu-extra">
+					{% if admin_page and csrf and request.url.path != '/admin/login' %}
+                    <form action="/admin/logout" method="post" class="m-0">
+                        <input type="hidden" name="csrf" value="{{ csrf }}">
+                        <button class="button button-sm button-outline-dark button-radius" type="submit">Sign out</button>
+                    </form>
+                    {% else %}
+                    <ul class="list-inline">
+						<li><a href="https://www.facebook.com/p/Learn-Play-Preschool-Daycare-100064329924185/?_rdr"><i class="bi bi-facebook"></i></a></li>
+						<li><a href="#"><i class="bi bi-twitter-x"></i></a></li>
+						<li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+					</ul>
+                    {% endif %}
+				</div>
+				<!-- Menu Toggle -->
+				<button class="header-toggle" type="button" aria-label="Toggle navigation">
+					<span></span>
+				</button>
+			</div><!-- end container -->
+		</div>
+		<!-- end Header -->
+
+
+        <main>
+        {% block content %}{% endblock %}
+        </main>
+		<footer>
+			<div class="section-sm">
+				<div class="container">
+					<div class="row g-4">
+						<div class="col-6 col-sm-6 col-lg-3">
+							<h3 class="uppercase letter-spacing-1">LP</h3>
+						</div>
+
+						<div class="col-6 col-sm-6 col-lg-3">
+							<h6 class="font-small fw-medium uppercase">Links</h6>
+							<ul class="list-dash animate-links">
+								<li><a href="/">Home</a></li>
+                                <li><a href="/team">Team</a></li>
+                                <li><a href="/admin">Admin sign in</a></li>
+								<li><a href="http://jcsires.com">Website made by JCSires</a></li>
+
+							</ul>
+						</div>
+
+						<div class="col-6 col-sm-6 col-lg-3">
+							<h6 class="font-small fw-medium uppercase">Address</h6>
+							<ul class="list-unstyled">
+								<li>4710 Cedar Heights Drive, Cedar Falls</li>
+							</ul>
+						</div>
+
+						<div class="col-6 col-sm-6 col-lg-3">
+							<h6 class="font-small fw-medium uppercase">Contact Info</h6>
+							<ul class="list-unstyled">
+								<li>info@learnandplaycv.com</li>
+								<li>(319) 266-7944</li>
+							</ul>
+						</div>
+					</div><!-- end row -->
+				</div><!-- end container -->
+			</div>
+			<div class="bg-black py-4">
+				<div class="container">
+					<div class="row align-items-center g-2 g-lg-3">
+						<div class="col-12 col-md-6 text-center text-md-start">
+							<p>&copy; 2024 Learn & Play, All Rights Reserved.</p>
+						</div>
+						<div class="col-12 col-md-6 text-center text-md-end">
+							<ul class="list-inline-sm">
+								<li><a class="button-circle button-circle-sm button-circle-social-facebook" href="https://www.facebook.com/p/Learn-Play-Preschool-Daycare-100064329924185/?_rdr"><i class="bi bi-facebook"></i></a></li>
+								<li><a class="button-circle button-circle-sm button-circle-social-twitter" href=""><i class="bi bi-twitter-x"></i></a></li>
+								<li><a class="button-circle button-circle-sm button-circle-social-pinterest" href=""><i class="bi bi-pinterest"></i></a></li>
+								<li><a class="button-circle button-circle-sm button-circle-social-instagram" href=""><i class="bi bi-instagram"></i></a></li>
+							</ul>
+						</div>
+					</div><!-- end row -->
+				</div><!-- end container -->
+			</div>
+		</footer>
+
+        <script src="/static/assets/plugins/jquery.min.js"></script>
+        <script src="/static/assets/plugins/plugins.js"></script>
+        <script src="/static/assets/js/functions.js"></script>
+        {% block scripts %}{% endblock %}
+    </body>
 </html>

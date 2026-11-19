@@ -116,7 +116,16 @@ def password_hash(password, salt=None):
     return f"pbkdf2_sha256${salt}${digest}"
 
 
+def admin_configured():
+    return bool(os.getenv("ADMIN_PASSWORD") or os.getenv("ADMIN_PASSWORD_HASH"))
+
+
 def password_matches(password):
+    if len(password) > 1024:
+        return False
+    configured_password = os.getenv("ADMIN_PASSWORD", "")
+    if configured_password:
+        return hmac.compare_digest(password.encode(), configured_password.encode())
     stored = os.getenv("ADMIN_PASSWORD_HASH", "")
     try:
         algorithm, salt, digest = stored.split("$")
@@ -138,7 +147,7 @@ async def login_page(request: Request):
     if current and current["authenticated"]:
         return redirect()
     token, csrf = new_session()
-    response = render(request, "admin_login.html", csrf=csrf, configured=bool(os.getenv("ADMIN_PASSWORD_HASH")))
+    response = render(request, "admin_login.html", csrf=csrf, configured=admin_configured())
     set_cookie(response, token)
     return response
 
@@ -146,7 +155,7 @@ async def login_page(request: Request):
 @router.post("/admin/login")
 async def login(request: Request, username: str = Form(""), password: str = Form(""), csrf: str = Form("")):
     check_csrf(request, csrf, require_admin=False)
-    if not os.getenv("ADMIN_PASSWORD_HASH"):
+    if not admin_configured():
         return render(request, "admin_login.html", csrf=csrf, configured=False)
     client = request.client.host if request.client else "unknown"
     now = int(time.time())
