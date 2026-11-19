@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Meet the people who help children learn, play, and grow at Learn & Play in Cedar Falls.">
+  {% if admin_page %}<meta name="robots" content="noindex,nofollow">{% endif %}
+  <title>{% block title %}Our team{% endblock %} | Learn & Play</title>
+  <link rel="icon" href="/static/favicon.ico">
+  <link rel="stylesheet" href="/static/assets/css/people.css">
+</head>
+<body>
+  <header class="site-header"><div class="shell header-inner">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">lp<span>✳</span></span><span>Learn & Play<small>Preschool & Daycare</small></span></a>
+    <nav aria-label="Main navigation">
+      {% if admin_page %}
+        <a href="/admin/employees">Employees</a><a href="/team" target="_blank" rel="noopener">View team page</a>
+        {% if csrf and request.url.path != '/admin/login' %}<form action="/admin/logout" method="post"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="text-button" type="submit">Sign out</button></form>{% endif %}
+      {% else %}
+        <a href="/">Home</a><a href="/team" aria-current="page">Our team</a><a href="/careers">Careers</a><a class="button small" href="/#contact">Get in touch</a>
+      {% endif %}
+    </nav>
+  </div></header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer class="site-footer"><div class="shell footer-inner"><div><strong>Small moments. Big discoveries.</strong><p>Learn & Play Preschool & Daycare · Cedar Falls, Iowa</p></div><a href="/admin/employees">Admin sign in</a></div></footer>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

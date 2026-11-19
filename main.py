@@ -30,7 +30,10 @@ logging.getLogger('smtplib').setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
 
+from employee_admin import router as employee_router, employees
+
 app = FastAPI()
+app.include_router(employee_router)
 templates = Jinja2Templates(directory="templates")
 emails = [
     address.strip()
@@ -384,7 +387,7 @@ async def careers_post(
 async def team(request: Request):
     """Serve the team page."""
     logger.info("GET request received for the team page.")
-    return templates.TemplateResponse("team.html", {"request": request})
+    return templates.TemplateResponse("team.html", {"request": request, "employees": employees()})
 
 
 @app.exception_handler(404)
