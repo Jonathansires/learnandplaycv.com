@@ -9,19 +9,20 @@
         {% if admin_page %}<meta name="robots" content="noindex,nofollow">{% endif %}
 		<!-- Favicon -->
         <link href="/static/favicon.ico" rel="shortcut icon">
-		<!-- CSS -->
-		<link href="{{ url_for('static', path='assets/plugins/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-		<link href="{{ url_for('static', path='assets/plugins/owl-carousel/owl.carousel.min.css') }}" rel="stylesheet">
-		<link href="{{ url_for('static', path='assets/plugins/owl-carousel/owl.theme.default.min.css') }}" rel="stylesheet">
-		<link href="{{ url_for('static', path='assets/plugins/magnific-popup/magnific-popup.min.css') }}" rel="stylesheet">
-		<link href="{{ url_for('static', path='assets/plugins/scrollcue/scrollcue.css') }}" rel="stylesheet">
-		<link href="{{ url_for('static', path='assets/plugins/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-		<link href="{{ url_for('static', path='assets/css/theme.css') }}" rel="stylesheet">
+		<!-- Use the same root-relative assets as the home and careers pages. -->
+        <!-- CSS -->
+		<link href="/static/assets/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+		<link href="/static/assets/plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+		<link href="/static/assets/plugins/owl-carousel/owl.theme.default.min.css" rel="stylesheet">
+		<link href="/static/assets/plugins/magnific-popup/magnific-popup.min.css" rel="stylesheet">
+		<link href="/static/assets/plugins/scrollcue/scrollcue.css" rel="stylesheet">
+		<link href="/static/assets/plugins/swiper/swiper-bundle.min.css" rel="stylesheet">
+		<link href="/static/assets/css/theme.css" rel="stylesheet">
 		<!-- Fonts/Icons -->
-		<link href="{{ url_for('static', path='assets/plugins/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-		<link href="{{ url_for('static', path='assets/plugins/font-awesome/css/all.css') }}" rel="stylesheet">
+		<link href="/static/assets/plugins/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+		<link href="/static/assets/plugins/font-awesome/css/all.css" rel="stylesheet">
 
-        <link href="/static/assets/css/people.css" rel="stylesheet">
+        <link href="/static/assets/css/people.css?v=mono-2" rel="stylesheet">
 	</head>
 	<body data-preloader="1">
 

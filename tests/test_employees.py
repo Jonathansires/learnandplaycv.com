@@ -50,6 +50,29 @@ class EmployeeTests(unittest.TestCase):
         image.save(output, format='PNG')
         return ('portrait.png', output.getvalue(), 'image/png')
 
+    def test_new_pages_load_the_same_theme_assets_behind_https_proxy(self):
+        # The reverse proxy terminates HTTPS while Uvicorn receives HTTP.
+        headers = {'host': 'learnandplaycv.com', 'x-forwarded-proto': 'https'}
+        css_links = lambda html: re.findall(r'<link[^>]+href="([^"]+)"[^>]+rel="stylesheet"', html)
+        working_styles = css_links(self.client.get('/careers', headers=headers).text)
+        csrf = self.login()
+        self.client.post('/admin/employees/new', data={'csrf': csrf, 'name': 'Jane'})
+        employee_id = admin.employees()[0]['id']
+        for path in ['/team', '/admin/employees', '/admin/employees/new', f'/admin/employees/{employee_id}/edit']:
+            page = self.client.get(path, headers=headers)
+            self.assertEqual(page.status_code, 200)
+            styles = css_links(page.text)
+            self.assertEqual(styles[:len(working_styles)], working_styles, path)
+            for asset in styles + re.findall(r'<script[^>]+src="([^"]+)"', page.text):
+                self.assertTrue(asset.startswith('/static/'), f'{path}: {asset}')
+                response = self.client.get(asset)
+                self.assertEqual(response.status_code, 200, asset)
+                if '.css' in asset:
+                    self.assertIn('text/css', response.headers['content-type'])
+        self.client.post('/admin/logout', data={'csrf': csrf})
+        login_page = self.client.get('/admin/login', headers=headers)
+        self.assertEqual(css_links(login_page.text)[:len(working_styles)], working_styles)
+
     def test_employee_lifecycle_and_photo_persistence(self):
         csrf = self.login()
         response = self.client.post('/admin/employees/new', data={'csrf': csrf, 'name': 'Jane Smith', 'title': 'Lead Teacher', 'sort_order': '4'}, files={'photo': self.photo()})
