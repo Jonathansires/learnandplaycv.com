@@ -22,7 +22,7 @@
 		<link href="/static/assets/plugins/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 		<link href="/static/assets/plugins/font-awesome/css/all.css" rel="stylesheet">
 
-        <link href="/static/assets/css/people.css?v=mono-2" rel="stylesheet">
+        <link href="/static/assets/css/people.css?v=gallery-1" rel="stylesheet">
 	</head>
 	<body data-preloader="1">
 
@@ -40,11 +40,13 @@
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         {% if admin_page %}
                         <li class="nav-item"><a class="nav-link" href="/admin/employees">Employees</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/admin/gallery">Gallery</a></li>
                         <li class="nav-item"><a class="nav-link" href="/team" target="_blank" rel="noopener">View Team</a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
                         <li class="nav-item"><a class="nav-link" href="/careers">Careers</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/team" aria-current="page">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/team" {% if request.url.path == "/team" %}aria-current="page"{% endif %}>Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/gallery" {% if request.url.path == "/gallery" %}aria-current="page"{% endif %}>Gallery</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -88,6 +90,7 @@
 							<ul class="list-dash animate-links">
 								<li><a href="/">Home</a></li>
                                 <li><a href="/team">Team</a></li>
+                                <li><a href="/gallery">Gallery</a></li>
                                 <li><a href="/admin">Admin sign in</a></li>
 								<li><a href="http://jcsires.com">Website made by JCSires</a></li>
 

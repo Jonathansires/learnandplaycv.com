@@ -49,11 +49,22 @@ Visit `http://localhost:8000/team` for the public page and `http://localhost:800
 ## Manage employees
 
 1. Sign in and choose **Add employee**.
-2. Enter a name, optionally add a title, and select a JPG, PNG, or WebP photo up to 5 MB. Photos must be under 25 megapixels. Uploads are decoded, resized to fit 1200 × 1200, and re-encoded as JPEG without metadata.
+2. Enter a name, optionally add a title, and select a JPG, PNG, or WebP photo. The browser automatically resizes it to fit 1200 × 1200 and compresses it to a JPEG under 450 KB before uploading. A preview and the prepared file size appear when it is ready. The server also validates, resizes, and re-encodes uploads without metadata, accepting originals up to 50 MB and 60 megapixels when browser preparation is bypassed. A reverse proxy may impose its own request limit on unprocessed uploads.
 3. Set display order if needed. Lower numbers appear first; ties follow the order employees were added.
 4. Choose **Save employee**. Changes appear immediately on `/team`.
 
 Choose **Edit** to update an employee, replace their photo, or remove their photo. **Remove** deletes the employee and their photo, after a browser confirmation. Employees without photos display their initial. The original Mono team template supplies the page layout and card styling; employee cards come from the database. The team page starts empty because the template's sample people are not real employee records.
+
+## Gallery
+
+Visit `/gallery` for the public photo gallery. Use **Gallery** in the admin navigation or open `/admin/gallery` to manage it with the existing admin login.
+
+- Choose **Add Photo**, select a photo, optionally enter a description for screen readers, and save. Photo compression works the same way as employee uploads.
+- Drag photos to rearrange them on desktop, or use **Move earlier** and **Move later** on any device. Each change saves immediately and updates the public gallery.
+- Choose **Edit** to replace a photo or change its description. Choose **Remove** to delete it after confirmation.
+- Public visitors can select a photo to open the theme's gallery lightbox.
+
+Gallery photos and their order use the existing SQLite database. The gallery table is created automatically; existing employee records are preserved. Keep the same persistent database and backups when deploying this feature.
 
 ## Hosting and persistence
 

@@ -31,3 +31,22 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
+
+/* Gallery photos keep their original proportions when opened in the lightbox. */
+.gallery-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.gallery-sort-item[draggable="true"] {
+  cursor: grab;
+}
+.gallery-dragging {
+  opacity: 0.5;
+}
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

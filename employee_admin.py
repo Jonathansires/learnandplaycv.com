@@ -20,8 +20,9 @@ templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 router = APIRouter()
 COOKIE = "lp_admin_session"
 SESSION_SECONDS = 8 * 60 * 60
-MAX_PHOTO_BYTES = 5 * 1024 * 1024
-Image.MAX_IMAGE_PIXELS = 25_000_000
+MAX_PHOTO_BYTES = 50 * 1024 * 1024
+WEB_PHOTO_BYTES = 450 * 1024
+Image.MAX_IMAGE_PIXELS = 60_000_000
 
 
 @contextmanager
@@ -34,6 +35,10 @@ def database():
         CREATE TABLE IF NOT EXISTS employees (
             id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, title TEXT NOT NULL DEFAULT '',
             sort_order INTEGER NOT NULL DEFAULT 0, photo BLOB, photo_version TEXT
+        );
+        CREATE TABLE IF NOT EXISTS gallery_photos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT NOT NULL DEFAULT '',
+            photo BLOB NOT NULL, photo_version TEXT NOT NULL, sort_order INTEGER NOT NULL DEFAULT 0
         );
         CREATE TABLE IF NOT EXISTS admin_sessions (
             token_hash TEXT PRIMARY KEY, csrf TEXT NOT NULL,
@@ -215,7 +220,7 @@ async def read_photo(photo):
         return None
     content = await photo.read(MAX_PHOTO_BYTES + 1)
     if len(content) > MAX_PHOTO_BYTES:
-        raise ValueError("Choose a photo smaller than 5 MB.")
+        raise ValueError("Choose a photo smaller than 50 MB.")
     try:
         with warnings.catch_warnings():
             warnings.simplefilter("error", Image.DecompressionBombWarning)
@@ -229,11 +234,16 @@ async def read_photo(photo):
                 rgba = image.convert("RGBA")
                 clean = Image.new("RGB", rgba.size, "white")
                 clean.paste(rgba, mask=rgba.getchannel("A"))
-                output = io.BytesIO()
-                clean.save(output, format="JPEG", quality=88)
-                return output.getvalue()
+                for edge in (1200, 1000, 800, 640):
+                    clean.thumbnail((edge, edge), Image.Resampling.LANCZOS)
+                    for quality in (85, 75, 65):
+                        output = io.BytesIO()
+                        clean.save(output, format="JPEG", quality=quality, optimize=True)
+                        if output.tell() <= WEB_PHOTO_BYTES:
+                            return output.getvalue()
+                raise ValueError("This photo could not be prepared. Please try a different photo.")
     except (UnidentifiedImageError, OSError, Image.DecompressionBombError, Image.DecompressionBombWarning) as exc:
-        raise ValueError("That photo could not be opened. Choose a valid JPG, PNG, or WebP photo under 25 megapixels.") from exc
+        raise ValueError("That photo could not be opened. Choose a valid JPG, PNG, or WebP photo under 60 megapixels.") from exc
 
 
 @router.post("/admin/employees/new")

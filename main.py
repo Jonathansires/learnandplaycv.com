@@ -31,9 +31,11 @@ logging.getLogger('smtplib').setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 from employee_admin import router as employee_router, employees
+from gallery_admin import router as gallery_router
 
 app = FastAPI()
 app.include_router(employee_router)
+app.include_router(gallery_router)
 templates = Jinja2Templates(directory="templates")
 emails = [
     address.strip()

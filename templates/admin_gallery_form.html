@@ -1,0 +1,37 @@
+{% extends "people_base.html" %}
+{% set admin_page = true %}
+{% block title %}{{ 'Edit Photo' if photo.id else 'Add Photo' }}{% endblock %}
+{% block content %}
+<div class="section">
+    <div class="container">
+        <div class="mb-5"><a class="text-link-1" href="/admin/gallery">Back to Gallery</a><h2 class="fw-light mt-4">{{ 'Edit Photo' if photo.id else 'Add Photo' }}</h2></div>
+        {% if error %}<div class="alert alert-danger" role="alert">{{ error }} Please select your photo again if you were uploading one.</div>{% endif %}
+        <form method="post" enctype="multipart/form-data" action="{{ '/admin/gallery/' ~ photo.id ~ '/edit' if photo.id else '/admin/gallery/new' }}">
+            <input type="hidden" name="csrf" value="{{ csrf }}">
+            <div class="row g-4 g-lg-5">
+                <div class="col-12 col-lg-5">
+                    <div class="border border-radius p-4">
+                        <div class="employee-preview bg-gray-lightest border-radius mb-4" id="photo-preview">
+                            {% if photo.photo_version %}<img src="/gallery/photos/{{ photo.id }}?v={{ photo.photo_version }}" alt="Current gallery photo">{% else %}<i class="bi bi-image display-4" aria-hidden="true"></i>{% endif %}
+                        </div>
+                        <label for="photo">{{ 'Replace photo (optional)' if photo.id else 'Choose photo' }}</label>
+                        <input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="photo-help photo-status" {% if not photo.id %}required{% endif %}>
+                        <p id="photo-status" class="font-small" role="status" aria-live="polite"></p>
+                        <p id="photo-help" class="font-small">JPG, PNG, or WebP. Photos are automatically resized and compressed for the web.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-7">
+                    <div class="border border-radius p-4 p-lg-5">
+                        <label for="description">Photo description (optional)</label>
+                        <input id="description" name="description" type="text" maxlength="200" value="{{ photo.description }}" aria-describedby="description-help">
+                        <p id="description-help" class="font-small">Briefly describe the photo for visitors using screen readers.</p>
+                        <div class="d-flex flex-wrap gap-3 mt-4"><button class="button button-md button-dark button-radius" type="submit">Save Photo</button><a class="button button-md button-outline-dark button-radius" href="/admin/gallery">Cancel</a></div>
+                        <p class="font-small mt-3">Saving updates the public gallery immediately. New photos are added at the end.</p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/static/assets/js/people.js?v=gallery-1" defer></script>{% endblock %}

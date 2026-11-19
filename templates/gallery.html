@@ -1,0 +1,24 @@
+{% extends "people_base.html" %}
+{% block title %}Gallery{% endblock %}
+{% block content %}
+<div class="section-lg bg-gray-lightest">
+    <div class="container text-center">
+        <h1 class="fw-light mb-0">Gallery</h1>
+    </div>
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row g-4 gallery-wrapper">
+            {% for photo in photos %}
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a class="d-block border-radius" href="/gallery/photos/{{ photo.id }}?v={{ photo.photo_version }}" aria-label="View photo {{ loop.index }}">
+                    <img class="gallery-photo" src="/gallery/photos/{{ photo.id }}?v={{ photo.photo_version }}" alt="{{ photo.description or 'Learn & Play gallery photo ' ~ loop.index }}" width="600" height="450" loading="lazy">
+                </a>
+            </div>
+            {% else %}
+            <div class="col-12 text-center"><p>Photos are coming soon.</p></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

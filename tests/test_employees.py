@@ -58,7 +58,7 @@ class EmployeeTests(unittest.TestCase):
         csrf = self.login()
         self.client.post('/admin/employees/new', data={'csrf': csrf, 'name': 'Jane'})
         employee_id = admin.employees()[0]['id']
-        for path in ['/team', '/admin/employees', '/admin/employees/new', f'/admin/employees/{employee_id}/edit']:
+        for path in ['/team', '/gallery', '/admin/gallery', '/admin/gallery/new', '/admin/employees', '/admin/employees/new', f'/admin/employees/{employee_id}/edit']:
             page = self.client.get(path, headers=headers)
             self.assertEqual(page.status_code, 200)
             styles = css_links(page.text)
@@ -104,6 +104,26 @@ class EmployeeTests(unittest.TestCase):
         self.assertEqual(response.status_code, 303)
         self.assertNotIn('Jane Updated', self.client.get('/team').text)
         self.assertEqual(len(admin.employees()), 0)
+
+    def test_large_original_is_automatically_compressed_for_web(self):
+        csrf = self.login()
+        image = Image.frombytes('RGB', (1800, 1600), os.urandom(1800 * 1600 * 3))
+        output = io.BytesIO()
+        image.save(output, format='PNG')
+        original = output.getvalue()
+        self.assertGreater(len(original), 5 * 1024 * 1024)
+        response = self.client.post('/admin/employees/new',
+            data={'csrf': csrf, 'name': 'Large Photo'},
+            files={'photo': ('camera-original.png', original, 'image/png')})
+        self.assertEqual(response.status_code, 303)
+        employee_id = admin.employees()[0]['id']
+        photo = self.client.get(f'/team/photos/{employee_id}')
+        self.assertLessEqual(len(photo.content), admin.WEB_PHOTO_BYTES)
+        with Image.open(io.BytesIO(photo.content)) as prepared:
+            self.assertEqual(prepared.format, 'JPEG')
+            self.assertLessEqual(max(prepared.size), 1200)
+            self.assertAlmostEqual(prepared.width / prepared.height, 1800 / 1600, places=2)
+        self.assertIn('Large Photo', self.client.get('/team').text)
 
     def test_access_csrf_session_rotation_and_logout(self):
         for path in ['/admin/employees', '/admin/employees/new', '/admin/employees/1/edit']:

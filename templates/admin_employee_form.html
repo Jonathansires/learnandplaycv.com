@@ -24,8 +24,9 @@
                             {% endif %}
                         </div>
                         <label for="photo">Choose photo <span class="font-small">(optional)</span></label>
-                        <input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="photo-help">
-                        <p id="photo-help" class="font-small">JPG, PNG, or WebP, up to 5 MB. A square photo works best.</p>
+                        <input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="photo-help photo-status">
+                        <p id="photo-status" class="font-small" role="status" aria-live="polite"></p>
+                        <p id="photo-help" class="font-small">JPG, PNG, or WebP. Large photos are automatically resized and compressed for the web. A square photo works best.</p>
                         {% if employee.photo_version %}
                         <div class="form-check mt-3">
                             <input id="remove_photo" class="form-check-input" type="checkbox" name="remove_photo" value="true">
@@ -56,4 +57,4 @@
     </div>
 </div>
 {% endblock %}
-{% block scripts %}<script src="/static/assets/js/people.js" defer></script>{% endblock %}
+{% block scripts %}<script src="/static/assets/js/people.js?v=photo-compression-1" defer></script>{% endblock %}

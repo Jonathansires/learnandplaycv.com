@@ -1,0 +1,60 @@
+{% extends "people_base.html" %}
+{% set admin_page = true %}
+{% block title %}Manage Gallery{% endblock %}
+{% block content %}
+<div class="section">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <div><h2 class="fw-light mb-2">Manage Gallery</h2><p>Upload photos and choose how they appear.</p></div>
+            <div class="d-flex flex-wrap gap-3">
+                <a class="button button-md button-outline-dark button-radius" href="/gallery" target="_blank" rel="noopener">View Gallery</a>
+                <a class="button button-md button-dark button-radius" href="/admin/gallery/new">Add Photo</a>
+            </div>
+        </div>
+        {% if notice %}<div class="alert alert-success" role="status">{{ notice }}</div>{% endif %}
+        {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+        {% if photos %}
+        <p class="mb-4">Drag photos to arrange them, or use Move earlier and Move later. Changes save automatically.</p>
+        <form id="gallery-order-form" action="/admin/gallery/reorder" method="post">
+            <input type="hidden" name="csrf" value="{{ csrf }}">
+            <input type="hidden" name="order" id="gallery-order">
+        </form>
+        {% endif %}
+        <div class="row g-4" id="gallery-sortable">
+            {% for photo in photos %}
+            <div class="col-12 col-md-6 col-lg-4 gallery-sort-item" data-photo-id="{{ photo.id }}" draggable="true">
+                <article class="border border-radius h-100">
+                    <img class="gallery-photo" src="/gallery/photos/{{ photo.id }}?v={{ photo.photo_version }}" alt="{{ photo.description or 'Gallery photo ' ~ loop.index }}" width="600" height="450" draggable="false">
+                    <div class="p-4">
+                        <h5 class="fw-normal mb-3">Photo {{ loop.index }}</h5>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <form action="/admin/gallery/{{ photo.id }}/move" method="post" class="m-0">
+                                <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="direction" value="earlier">
+                                <button class="button button-sm button-outline-dark button-radius" type="submit" {% if loop.first %}disabled{% endif %}>Move earlier<span class="visually-hidden"> photo {{ loop.index }}</span></button>
+                            </form>
+                            <form action="/admin/gallery/{{ photo.id }}/move" method="post" class="m-0">
+                                <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="direction" value="later">
+                                <button class="button button-sm button-outline-dark button-radius" type="submit" {% if loop.last %}disabled{% endif %}>Move later<span class="visually-hidden"> photo {{ loop.index }}</span></button>
+                            </form>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a class="button button-sm button-outline-dark button-radius" href="/admin/gallery/{{ photo.id }}/edit">Edit<span class="visually-hidden"> photo {{ loop.index }}</span></a>
+                            <form action="/admin/gallery/{{ photo.id }}/delete" method="post" class="delete-form m-0" data-confirm="Remove this photo from the gallery?">
+                                <input type="hidden" name="csrf" value="{{ csrf }}">
+                                <button class="button button-sm button-outline-dark button-radius" type="submit">Remove<span class="visually-hidden"> photo {{ loop.index }}</span></button>
+                            </form>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% else %}
+            <div class="col-12"><div class="border border-radius p-5 text-center"><h4 class="fw-light">No gallery photos yet</h4><p>Add your first photo to get started.</p><a class="button button-md button-dark button-radius mt-4" href="/admin/gallery/new">Add Photo</a></div></div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="/static/assets/js/people.js?v=gallery-1" defer></script>
+<script src="/static/assets/js/gallery.js?v=1" defer></script>
+{% endblock %}
