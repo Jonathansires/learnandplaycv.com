@@ -46,18 +46,22 @@ Create `.env` from `.env.example` only if `.env` does not already exist. Set `AD
 
 Visit `http://localhost:8000/team` for the public page and `http://localhost:8000/admin` to sign in. The existing home and careers pages continue to use the email and reCAPTCHA configuration in `.env`.
 
+## Admin dashboard
+
+Open `/admin` to sign in. Successful sign-in opens the **Website Administration** dashboard with **Edit Team** and **Edit Gallery** links, plus links to view the public pages. Use **Dashboard** in the admin navigation or **Back to Dashboard** in either editor to return here. The dashboard uses the same existing admin credentials.
+
 ## Manage employees
 
-1. Sign in and choose **Add employee**.
+1. Sign in, choose **Edit Team** on the dashboard, then **Add Employee**.
 2. Enter a name, optionally add a title, and select a JPG, PNG, or WebP photo. The browser automatically resizes it to fit 1200 × 1200 and compresses it to a JPEG under 450 KB before uploading. A preview and the prepared file size appear when it is ready. The server also validates, resizes, and re-encodes uploads without metadata, accepting originals up to 50 MB and 60 megapixels when browser preparation is bypassed. A reverse proxy may impose its own request limit on unprocessed uploads.
-3. Set display order if needed. Lower numbers appear first; ties follow the order employees were added.
+3. Adjust **Horizontal position** and **Vertical position** beneath the square preview to keep faces in frame. Choose **Center Photo** to reset the crop. Position changes work with existing photos without re-uploading. Set display order if needed. Lower numbers appear first; ties follow the order employees were added.
 4. Choose **Save employee**. Changes appear immediately on `/team`.
 
-Choose **Edit** to update an employee, replace their photo, or remove their photo. **Remove** deletes the employee and their photo, after a browser confirmation. Employees without photos display their initial. The original Mono team template supplies the page layout and card styling; employee cards come from the database. The team page starts empty because the template's sample people are not real employee records.
+Choose **Edit** to update an employee, replace their photo, or remove their photo. **Remove** deletes the employee and their photo, after a browser confirmation. Team photos display as rounded squares. Employees without photos display their initial. Photo positions are saved per employee; existing records default to a centered crop and are upgraded automatically. The original Mono team template supplies the page layout and card styling; employee cards come from the database. The team page starts empty because the template's sample people are not real employee records.
 
 ## Gallery
 
-Visit `/gallery` for the public photo gallery. Use **Gallery** in the admin navigation or open `/admin/gallery` to manage it with the existing admin login.
+Visit `/gallery` for the public photo gallery. Choose **Edit Gallery** on the admin dashboard or use **Gallery** in the admin navigation or open `/admin/gallery` to manage it with the existing admin login.
 
 - Choose **Add Photo**, select a photo, optionally enter a description for screen readers, and save. Photo compression works the same way as employee uploads.
 - Drag photos to rearrange them on desktop, or use **Move earlier** and **Move later** on any device. Each change saves immediately and updates the public gallery.

@@ -16,13 +16,24 @@
                 <div class="col-12 col-lg-4">
                     <div class="border border-radius p-4">
                         <h5 class="fw-normal">Employee Photo</h5>
-                        <div class="employee-preview bg-gray-lightest border-radius mb-4" id="photo-preview">
+                        <div class="employee-preview employee-crop-preview bg-gray-lightest border-radius mb-4" id="photo-preview">
                             {% if employee.photo_version %}
-                            <img src="/team/photos/{{ employee.id }}?v={{ employee.photo_version }}" alt="Current employee photo">
+                            <img src="/team/photos/{{ employee.id }}?v={{ employee.photo_version }}" alt="Current employee photo" style="object-position: {{ employee.photo_x }}% {{ employee.photo_y }}%;">
                             {% else %}
                             <i class="bi bi-person display-4" aria-hidden="true"></i>
                             {% endif %}
                         </div>
+                        <fieldset class="mb-4" aria-describedby="position-help">
+                            <legend class="h6 fw-normal">Photo Position</legend>
+                            <p id="position-help" class="font-small">Adjust the sliders to keep the face in frame. This preview matches the team page.</p>
+                            <label for="photo_x">Horizontal position</label>
+                            <input class="form-range" id="photo_x" name="photo_x" type="range" min="0" max="100" step="1" value="{{ employee.photo_x }}" aria-describedby="position-help">
+                            <div class="d-flex justify-content-between font-small mb-3"><span>Left</span><span>Right</span></div>
+                            <label for="photo_y">Vertical position</label>
+                            <input class="form-range" id="photo_y" name="photo_y" type="range" min="0" max="100" step="1" value="{{ employee.photo_y }}" aria-describedby="position-help">
+                            <div class="d-flex justify-content-between font-small mb-3"><span>Top</span><span>Bottom</span></div>
+                            <button class="button button-sm button-outline-dark button-radius" type="button" id="center-photo">Center Photo</button>
+                        </fieldset>
                         <label for="photo">Choose photo <span class="font-small">(optional)</span></label>
                         <input id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="photo-help photo-status">
                         <p id="photo-status" class="font-small" role="status" aria-live="polite"></p>
@@ -57,4 +68,4 @@
     </div>
 </div>
 {% endblock %}
-{% block scripts %}<script src="/static/assets/js/people.js?v=photo-compression-1" defer></script>{% endblock %}
+{% block scripts %}<script src="/static/assets/js/people.js?v=photo-position-1" defer></script>{% endblock %}

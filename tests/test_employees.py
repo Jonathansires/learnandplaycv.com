@@ -3,6 +3,7 @@ import io
 import os
 from pathlib import Path
 import re
+import sqlite3
 import tempfile
 import time
 import unittest
@@ -58,7 +59,7 @@ class EmployeeTests(unittest.TestCase):
         csrf = self.login()
         self.client.post('/admin/employees/new', data={'csrf': csrf, 'name': 'Jane'})
         employee_id = admin.employees()[0]['id']
-        for path in ['/team', '/gallery', '/admin/gallery', '/admin/gallery/new', '/admin/employees', '/admin/employees/new', f'/admin/employees/{employee_id}/edit']:
+        for path in ['/admin', '/team', '/gallery', '/admin/gallery', '/admin/gallery/new', '/admin/employees', '/admin/employees/new', f'/admin/employees/{employee_id}/edit']:
             page = self.client.get(path, headers=headers)
             self.assertEqual(page.status_code, 200)
             styles = css_links(page.text)
@@ -72,6 +73,26 @@ class EmployeeTests(unittest.TestCase):
         self.client.post('/admin/logout', data={'csrf': csrf})
         login_page = self.client.get('/admin/login', headers=headers)
         self.assertEqual(css_links(login_page.text)[:len(working_styles)], working_styles)
+
+    def test_admin_dashboard_is_the_protected_sign_in_destination(self):
+        self.assertEqual(self.client.get('/admin').headers['location'], '/admin/login')
+        login_page = self.client.get('/admin/login')
+        response = self.client.post('/admin/login', data={
+            'csrf': self.csrf(login_page), 'username': 'owner', 'password': 'a very strong test password',
+        })
+        self.assertEqual(response.status_code, 303)
+        self.assertEqual(response.headers['location'], '/admin')
+        dashboard = self.client.get('/admin')
+        self.assertEqual(dashboard.status_code, 200)
+        self.assertIn('Website Administration', dashboard.text)
+        self.assertIn('href="/admin/employees">Edit Team', dashboard.text)
+        self.assertIn('href="/admin/gallery">Edit Gallery', dashboard.text)
+        self.assertIn('no-store', dashboard.headers['cache-control'])
+        self.assertEqual(self.client.get('/admin/login').headers['location'], '/admin')
+        for path in ['/admin/employees', '/admin/gallery']:
+            self.assertIn('href="/admin">Back to Dashboard', self.client.get(path).text)
+        self.client.post('/admin/logout', data={'csrf': self.csrf(dashboard)})
+        self.assertEqual(self.client.get('/admin').headers['location'], '/admin/login')
 
     def test_employee_lifecycle_and_photo_persistence(self):
         csrf = self.login()
@@ -104,6 +125,44 @@ class EmployeeTests(unittest.TestCase):
         self.assertEqual(response.status_code, 303)
         self.assertNotIn('Jane Updated', self.client.get('/team').text)
         self.assertEqual(len(admin.employees()), 0)
+
+    def test_photo_position_is_saved_without_reupload_and_validated(self):
+        csrf = self.login()
+        response = self.client.post('/admin/employees/new',
+            data={'csrf': csrf, 'name': 'Jane', 'photo_x': '25', 'photo_y': '10'},
+            files={'photo': self.photo()})
+        self.assertEqual(response.status_code, 303)
+        employee = admin.employees()[0]
+        employee_id = employee['id']
+        version = employee['photo_version']
+        image = self.client.get(f'/team/photos/{employee_id}').content
+        self.assertEqual((employee['photo_x'], employee['photo_y']), (25, 10))
+        response = self.client.post(f'/admin/employees/{employee_id}/edit',
+            data={'csrf': csrf, 'name': 'Jane', 'photo_x': '60', 'photo_y': '0'})
+        self.assertEqual(response.status_code, 303)
+        self.assertEqual(self.client.get(f'/team/photos/{employee_id}').content, image)
+        self.assertEqual(admin.employees()[0]['photo_version'], version)
+        for path in ['/team', '/admin/employees', f'/admin/employees/{employee_id}/edit']:
+            self.assertIn('object-position: 60% 0%;', self.client.get(path).text)
+        # Updates from older forms preserve the saved position.
+        self.client.post(f'/admin/employees/{employee_id}/edit', data={'csrf': csrf, 'name': 'Jane Updated'})
+        self.assertEqual((admin.employees()[0]['photo_x'], admin.employees()[0]['photo_y']), (60, 0))
+        for x, y in [('-1', '50'), ('50', '101'), ('bad', '50'), ('50', '1.5')]:
+            response = self.client.post(f'/admin/employees/{employee_id}/edit',
+                data={'csrf': csrf, 'name': 'Invalid', 'photo_x': x, 'photo_y': y})
+            self.assertEqual(response.status_code, 400)
+            employee = admin.employees()[0]
+            self.assertEqual((employee['name'], employee['photo_x'], employee['photo_y']), ('Jane Updated', 60, 0))
+
+    def test_existing_employee_photo_migrates_to_centered_position(self):
+        with sqlite3.connect(os.environ['EMPLOYEE_DATABASE']) as db:
+            db.execute("CREATE TABLE employees (id INTEGER PRIMARY KEY, name TEXT NOT NULL, title TEXT NOT NULL DEFAULT '', sort_order INTEGER NOT NULL DEFAULT 0, photo BLOB, photo_version TEXT)")
+            db.execute("INSERT INTO employees (name, photo, photo_version) VALUES (?, ?, ?)", ('Existing Teacher', self.photo()[1], 'original-version'))
+        for _ in range(2):
+            employee = admin.employees()[0]
+            self.assertEqual((employee['name'], employee['photo_x'], employee['photo_y']), ('Existing Teacher', 50, 50))
+            self.assertEqual(employee['photo_version'], 'original-version')
+            self.assertEqual(self.client.get(f"/team/photos/{employee['id']}").content, self.photo()[1])
 
     def test_large_original_is_automatically_compressed_for_web(self):
         csrf = self.login()

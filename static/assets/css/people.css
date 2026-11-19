@@ -1,10 +1,16 @@
 /* Employee-specific sizing; typography, colors, forms, and layout use Mono. */
 .employee-photo {
+  width: 180px;
+  height: 180px;
+  max-width: 100%;
   object-fit: cover;
+  border-radius: 12px;
 }
 .employee-initial {
-  width: 100px;
-  height: 100px;
+  width: 180px;
+  height: 180px;
+  max-width: 100%;
+  border-radius: 12px;
   font-size: 2rem;
 }
 .employee-copy {
@@ -49,4 +55,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* Match the public team photo crop while keeping gallery previews uncropped. */
+.employee-crop-preview img {
+  object-fit: cover;
+}
+input[type="range"].form-range {
+  padding: 0;
+  border: 0;
+  margin-bottom: 0;
 }

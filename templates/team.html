@@ -20,9 +20,9 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="border border-radius p-4 h-100">
                             {% if employee.photo_version %}
-                            <img class="img-mask-avatar-md employee-photo" src="/team/photos/{{ employee.id }}?v={{ employee.photo_version }}" alt="{{ employee.name }}" width="100" height="100" loading="lazy">
+                            <img class="employee-photo" style="object-position: {{ employee.photo_x }}% {{ employee.photo_y }}%;" src="/team/photos/{{ employee.id }}?v={{ employee.photo_version }}" alt="{{ employee.name }}" width="180" height="180" loading="lazy">
                             {% else %}
-                            <span class="employee-initial bg-gray d-inline-flex align-items-center justify-content-center rounded-circle" aria-hidden="true">{{ employee.name[0] | upper }}</span>
+                            <span class="employee-initial bg-gray d-inline-flex align-items-center justify-content-center" aria-hidden="true">{{ employee.name[0] | upper }}</span>
                             {% endif %}
                             <div class="mt-4 employee-copy">
                                 <h5 class="fw-normal mb-0">{{ employee.name }}</h5>

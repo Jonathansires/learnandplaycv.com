@@ -77,6 +77,7 @@ photoInput?.addEventListener('change', async () => {
     setProcessing(false);
     photoStatus.textContent = '';
     preview.replaceChildren(...originalPreview.map(node => node.cloneNode(true)));
+    updatePhotoPosition();
     return;
   }
   setProcessing(true);
@@ -93,6 +94,7 @@ photoInput?.addEventListener('change', async () => {
     image.src = previewUrl;
     image.alt = 'Preview of the prepared photo';
     preview.replaceChildren(image);
+    updatePhotoPosition();
     photoInput.setCustomValidity('');
     photoStatus.textContent = `Photo ready: ${photoSize(prepared.size)} (original ${photoSize(file.size)}).`;
   } catch (error) {
@@ -104,3 +106,20 @@ photoInput?.addEventListener('change', async () => {
     if (currentSelection === selection) setProcessing(false);
   }
 });
+
+function updatePhotoPosition() {
+  const x = document.getElementById('photo_x');
+  const y = document.getElementById('photo_y');
+  const image = preview?.querySelector('img');
+  if (image && x && y) image.style.objectPosition = `${x.value}% ${y.value}%`;
+}
+
+for (const id of ['photo_x', 'photo_y']) {
+  document.getElementById(id)?.addEventListener('input', updatePhotoPosition);
+}
+document.getElementById('center-photo')?.addEventListener('click', () => {
+  document.getElementById('photo_x').value = '50';
+  document.getElementById('photo_y').value = '50';
+  updatePhotoPosition();
+});
+updatePhotoPosition();

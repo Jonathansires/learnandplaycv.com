@@ -1,12 +1,13 @@
 {% extends "people_base.html" %}
 {% set admin_page = true %}
-{% block title %}Manage Employees{% endblock %}
+{% block title %}Manage Team{% endblock %}
 {% block content %}
 <div class="section">
     <div class="container">
+        <div class="mb-4"><a class="text-link-1" href="/admin">Back to Dashboard</a></div>
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-5">
             <div>
-                <h2 class="fw-light mb-2">Manage Employees</h2>
+                <h2 class="fw-light mb-2">Manage Team</h2>
                 <p>Add employees and update their photos and titles.</p>
             </div>
             <a class="button button-md button-dark button-radius" href="/admin/employees/new">Add Employee</a>
@@ -18,9 +19,9 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <article class="border border-radius p-4 text-center h-100">
                     {% if employee.photo_version %}
-                    <img class="img-mask-avatar-md employee-photo" src="/team/photos/{{ employee.id }}?v={{ employee.photo_version }}" alt="" width="100" height="100">
+                    <img class="employee-photo" style="object-position: {{ employee.photo_x }}% {{ employee.photo_y }}%;" src="/team/photos/{{ employee.id }}?v={{ employee.photo_version }}" alt="" width="180" height="180">
                     {% else %}
-                    <span class="employee-initial bg-gray d-inline-flex align-items-center justify-content-center rounded-circle" aria-hidden="true">{{ employee.name[0] | upper }}</span>
+                    <span class="employee-initial bg-gray d-inline-flex align-items-center justify-content-center" aria-hidden="true">{{ employee.name[0] | upper }}</span>
                     {% endif %}
                     <div class="mt-4 employee-copy">
                         <h5 class="fw-normal mb-1">{{ employee.name }}</h5>

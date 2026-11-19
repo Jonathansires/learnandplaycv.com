@@ -34,7 +34,8 @@ def database():
     db.executescript("""
         CREATE TABLE IF NOT EXISTS employees (
             id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, title TEXT NOT NULL DEFAULT '',
-            sort_order INTEGER NOT NULL DEFAULT 0, photo BLOB, photo_version TEXT
+            sort_order INTEGER NOT NULL DEFAULT 0, photo BLOB, photo_version TEXT,
+            photo_x INTEGER NOT NULL DEFAULT 50, photo_y INTEGER NOT NULL DEFAULT 50
         );
         CREATE TABLE IF NOT EXISTS gallery_photos (
             id INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT NOT NULL DEFAULT '',
@@ -48,6 +49,15 @@ def database():
         CREATE INDEX IF NOT EXISTS login_attempt_client ON login_attempts(client, attempted);
     """)
     try:
+        # Upgrade existing installations without changing photos or employee records.
+        columns = {row[1] for row in db.execute("PRAGMA table_info(employees)")}
+        if not {"photo_x", "photo_y"}.issubset(columns):
+            with db:
+                db.execute("BEGIN IMMEDIATE")
+                columns = {row[1] for row in db.execute("PRAGMA table_info(employees)")}
+                for column in ("photo_x", "photo_y"):
+                    if column not in columns:
+                        db.execute(f"ALTER TABLE employees ADD COLUMN {column} INTEGER NOT NULL DEFAULT 50")
         with db:
             yield db
     finally:
@@ -56,12 +66,12 @@ def database():
 
 def employees():
     with database() as db:
-        return db.execute("SELECT id, name, title, sort_order, photo_version FROM employees ORDER BY sort_order, id").fetchall()
+        return db.execute("SELECT id, name, title, sort_order, photo_version, photo_x, photo_y FROM employees ORDER BY sort_order, id").fetchall()
 
 
 def get_employee(employee_id):
     with database() as db:
-        employee = db.execute("SELECT id, name, title, sort_order, photo_version FROM employees WHERE id = ?", (employee_id,)).fetchone()
+        employee = db.execute("SELECT id, name, title, sort_order, photo_version, photo_x, photo_y FROM employees WHERE id = ?", (employee_id,)).fetchone()
     if employee is None:
         raise HTTPException(404, "Employee not found")
     return employee
@@ -111,7 +121,7 @@ def render(request, template, **context):
     return response
 
 
-def redirect(path="/admin/employees"):
+def redirect(path="/admin"):
     return RedirectResponse(path, status_code=303)
 
 
@@ -143,7 +153,10 @@ def password_matches(password):
 
 @router.get("/admin", response_class=HTMLResponse)
 async def admin_home(request: Request):
-    return redirect()
+    current = session(request)
+    if not current or not current["authenticated"]:
+        return redirect("/admin/login")
+    return render(request, "admin_dashboard.html", csrf=current["csrf"])
 
 
 @router.get("/admin/login", response_class=HTMLResponse)
@@ -211,7 +224,7 @@ async def employee_form(request: Request, employee_id: int = None):
     current = session(request)
     if not current or not current["authenticated"]:
         return redirect("/admin/login")
-    employee = get_employee(employee_id) if employee_id else {"name": "", "title": "", "sort_order": 0}
+    employee = get_employee(employee_id) if employee_id else {"name": "", "title": "", "sort_order": 0, "photo_x": 50, "photo_y": 50}
     return render(request, "admin_employee_form.html", employee=employee, csrf=current["csrf"])
 
 
@@ -248,11 +261,19 @@ async def read_photo(photo):
 
 @router.post("/admin/employees/new")
 @router.post("/admin/employees/{employee_id:int}/edit")
-async def save_employee(request: Request, employee_id: int = None, csrf: str = Form(""), name: str = Form(""), title: str = Form(""), sort_order: str = Form("0"), photo: UploadFile = File(None), remove_photo: bool = Form(False)):
+async def save_employee(request: Request, employee_id: int = None, csrf: str = Form(""), name: str = Form(""), title: str = Form(""), sort_order: str = Form("0"), photo: UploadFile = File(None), remove_photo: bool = Form(False), photo_x: str = Form(None), photo_y: str = Form(None)):
     current = check_csrf(request, csrf)
     existing = get_employee(employee_id) if employee_id else None
     values = {"id": employee_id, "name": name.strip(), "title": title.strip(), "sort_order": sort_order, "photo_version": existing["photo_version"] if existing else None}
+    values["photo_x"] = photo_x if photo_x is not None else (existing["photo_x"] if existing else 50)
+    values["photo_y"] = photo_y if photo_y is not None else (existing["photo_y"] if existing else 50)
     try:
+        try:
+            x, y = int(values["photo_x"]), int(values["photo_y"])
+            if not (0 <= x <= 100 and 0 <= y <= 100):
+                raise ValueError()
+        except (ValueError, TypeError):
+            raise ValueError("Photo positions must be whole numbers from 0 to 100.")
         if not values["name"] or len(values["name"]) > 100:
             raise ValueError("Enter an employee name with 1–100 characters.")
         if len(values["title"]) > 120:
@@ -270,9 +291,9 @@ async def save_employee(request: Request, employee_id: int = None, csrf: str = F
         return response
     with database() as db:
         if employee_id:
-            db.execute("UPDATE employees SET name = ?, title = ?, sort_order = ? WHERE id = ?", (values["name"], values["title"], order, employee_id))
+            db.execute("UPDATE employees SET name = ?, title = ?, sort_order = ?, photo_x = ?, photo_y = ? WHERE id = ?", (values["name"], values["title"], order, x, y, employee_id))
         else:
-            employee_id = db.execute("INSERT INTO employees (name, title, sort_order) VALUES (?, ?, ?)", (values["name"], values["title"], order)).lastrowid
+            employee_id = db.execute("INSERT INTO employees (name, title, sort_order, photo_x, photo_y) VALUES (?, ?, ?, ?, ?)", (values["name"], values["title"], order, x, y)).lastrowid
         if image is not None or remove_photo:
             db.execute("UPDATE employees SET photo = ?, photo_version = ? WHERE id = ?", (image, secrets.token_hex(8) if image else None, employee_id))
     return redirect("/admin/employees?notice=saved")

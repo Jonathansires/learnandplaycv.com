@@ -1,0 +1,38 @@
+{% extends "people_base.html" %}
+{% set admin_page = true %}
+{% block title %}Website Administration{% endblock %}
+{% block content %}
+<div class="section">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-5">
+            <div>
+                <h1 class="fw-light mb-2">Website Administration</h1>
+                <p>Choose which page you’d like to update.</p>
+            </div>
+            <a class="button button-md button-outline-dark button-radius" href="/" target="_blank" rel="noopener">View Website</a>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-lg-6">
+                <section class="border border-radius p-4 p-lg-5 h-100">
+                    <h3 class="fw-light mb-3">Team</h3>
+                    <p>Add or remove employees, change photos and titles, and choose their display order.</p>
+                    <div class="d-flex flex-wrap align-items-center gap-4 mt-4">
+                        <a class="button button-md button-dark button-radius" href="/admin/employees">Edit Team</a>
+                        <a class="text-link-1" href="/team" target="_blank" rel="noopener">View Team Page</a>
+                    </div>
+                </section>
+            </div>
+            <div class="col-12 col-lg-6">
+                <section class="border border-radius p-4 p-lg-5 h-100">
+                    <h3 class="fw-light mb-3">Gallery</h3>
+                    <p>Upload or replace photos, remove old photos, and arrange the gallery.</p>
+                    <div class="d-flex flex-wrap align-items-center gap-4 mt-4">
+                        <a class="button button-md button-dark button-radius" href="/admin/gallery">Edit Gallery</a>
+                        <a class="text-link-1" href="/gallery" target="_blank" rel="noopener">View Gallery Page</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
